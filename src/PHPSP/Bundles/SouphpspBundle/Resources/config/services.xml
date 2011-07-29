@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="souphpsp_web.example.class">PHPSP\Souphpsp\WebBundle\Example</parameter>
+        <parameter key="souphpsp.example.class">PHPSP\Bundles\SouphpspBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="souphpsp_web.example" class="%souphpsp_web.example.class%">
+        <service id="souphpsp.example" class="%souphpsp.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>

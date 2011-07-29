@@ -1,8 +1,12 @@
-SouphpspWebBundle:
-    resource: "@SouphpspWebBundle/Controller/"
+WebBundle:
+    resource: "@WebBundle/Controller/"
     type:     annotation
     prefix:   /
 
+SouphpspBundle:
+    resource: "@SouphpspBundle/Controller/"
+    type:     annotation
+    prefix:   /
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

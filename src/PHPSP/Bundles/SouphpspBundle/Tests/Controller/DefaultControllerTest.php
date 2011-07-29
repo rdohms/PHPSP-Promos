@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPSP\Souphpsp\WebBundle\Tests\Controller;
+namespace PHPSP\Bundles\SouphpspBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
