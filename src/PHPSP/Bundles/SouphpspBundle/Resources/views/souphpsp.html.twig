@@ -1,22 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'WebBundle::layout.html.twig' %}
 
-{% block title %}Sou PHPSP e Contribuo{% endblock %}
+{% block title %}{{ parent() }} - Sou PHPSP e Contribuo{% endblock %}
 
 {% block stylesheets %}{% endblock %}
+{% block javascript %}{% endblock %}
 
-{% block body %}
-	{% include 'WebBundle::_topbar.html.twig' %}
-   <header>
-   	
-   </header>
-
-	<div id="content">
-		{% block content %}{% endblock %}
-	</div>
-
-	<footer>
-		
-	</footer>
+{% block content %}
+	{% block souphpsp_content %}{% endblock %}
 {% endblock %}
 
-{% block javascript %}{% endblock %}
+
