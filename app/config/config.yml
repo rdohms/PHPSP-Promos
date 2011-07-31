@@ -57,3 +57,13 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+# FOSTwitter
+fos_twitter:
+    file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
+    consumer_key: LKUu7jZ5bqDJNcD9Ehkg9A
+    consumer_secret: h652phkyGHXNvrpVjPU0feRA9Vd0X2C3vplKcze4Y0
+    callback_url: %site_url%/login_check
+        
+
+            

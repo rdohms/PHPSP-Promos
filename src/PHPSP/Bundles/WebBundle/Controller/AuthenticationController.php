@@ -17,20 +17,4 @@ class AuthenticationController extends Controller
         return array('name' => $name);
     }
 
-    /**
-     * @Route("/authentication/authenticate")
-     */
-    public function authenticateAction()
-    {
-        
-    }
-    
-    /**
-     * @Route("/logout")
-     * @Template()
-     */
-    public function logoutAction()
-    {
-        
-    }
 }

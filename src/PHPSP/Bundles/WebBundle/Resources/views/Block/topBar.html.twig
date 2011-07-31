@@ -1,0 +1,9 @@
+<div id="phpsp-top-bar">
+	{% if isLogged%}
+	<p>
+		<img src="http://api.twitter.com/1/users/profile_image?screen_name={{ loggedUser.screen_name }}&size=mini" alt="{{ loggedUser.screen_name }}'s Profile picture"> 
+		<strong>{{ loggedUser.screen_name }}</strong> | <a href="/logout">logout</a></p>
+	{% else %}
+	<p><a href="#"><img src="{{ asset('bundles/web/images/sign-in-twitter.png')}}" alt="Entrar usando o Twitter"></a></p>
+	{% endif %}
+</div>

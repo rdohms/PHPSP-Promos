@@ -1,0 +1,6 @@
+services:
+    phpsp.twitter.api:
+        class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
+        arguments:
+            twitter: @fos_twitter.api
+            #cache:
