@@ -2,7 +2,8 @@
 
 namespace PHPSP\Bundles\SouphpspBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM,
+    Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PHPSP\Bundles\SouphpspBundle\Entity\Project
@@ -12,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Project
 {
+    const STATUS_OK = 1;
+    const STATUS_PENDING = 0;
+    
     /**
      * @var integer $id
      *
@@ -25,58 +29,66 @@ class Project
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=150)
+     * 
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @var string $site
      *
-     * @ORM\Column(name="site", type="string", length=255)
+     * @ORM\Column(name="site", type="string", length=255, nullable=true)
      */
     private $site;
 
     /**
      * @var string $repository
      *
-     * @ORM\Column(name="repository", type="string", length=255)
+     * @ORM\Column(name="repository", type="string", length=255, nullable=true)
      */
     private $repository;
 
     /**
      * @var string $howtocontribute
      *
-     * @ORM\Column(name="howtocontribute", type="string", length=255)
+     * @ORM\Column(name="howtocontribute", type="string", length=255, nullable=true)
      */
     private $howtocontribute;
 
     /**
      * @var string $contactName
      *
-     * @ORM\Column(name="contactName", type="string", length=100)
+     * @ORM\Column(name="contactName", type="string", length=100, nullable=true)
      */
     private $contactName;
 
     /**
      * @var string $contactEmail
      *
-     * @ORM\Column(name="contactEmail", type="string", length=100)
+     * @ORM\Column(name="contactEmail", type="string", length=100, nullable=true)
      */
     private $contactEmail;
 
     /**
      * @var text $about
      *
-     * @ORM\Column(name="about", type="text")
+     * @ORM\Column(name="about", type="text", nullable=true)
      */
     private $about;
 
     /**
      * @var text $whereToHelp
      *
-     * @ORM\Column(name="whereToHelp", type="text")
+     * @ORM\Column(name="whereToHelp", type="text", nullable=true)
      */
     private $whereToHelp;
 
+    /**
+     * @var int
+     * 
+     * @ORM\Column(type="integer")
+     */
+    private $status;
 
     /**
      * Get id
@@ -246,5 +258,21 @@ class Project
     public function getWhereToHelp()
     {
         return $this->whereToHelp;
+    }
+    
+    public function getStatus()     
+    {
+        return $this->status;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+        
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

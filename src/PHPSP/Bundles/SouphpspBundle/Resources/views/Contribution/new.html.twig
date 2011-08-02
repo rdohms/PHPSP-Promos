@@ -1,0 +1,27 @@
+<h1>Adicionar contribuição</h1>
+
+<form action="{{ path('contribution_create') }}" method="post" {{ form_enctype(form) }}>
+	{{ form_errors(form) }}
+
+	{{ form_row(form.userId) }}
+	{{ form_row(form.project) }}
+	{{ form_row(form.projectOther) }}
+	{{ form_row(form.type) }}
+	{{ form_row(form.typeOther) }}
+	{{ form_row(form.description) }}
+	{{ form_row(form.reference) }}
+	{{ form_row(form.notes) }}
+		{{ form_row(form._token) }}
+	
+	<p>
+		<button type="submit">Create</button>
+	</p>
+</form>
+
+<ul class="record_actions">
+	<li>
+		<a href="{{ path('contribution') }}">
+			Back to the list
+		</a>
+	</li>
+</ul>
