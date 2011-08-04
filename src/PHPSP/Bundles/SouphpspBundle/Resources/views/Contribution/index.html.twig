@@ -1,50 +1,58 @@
-<h1>Contribution list</h1>
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Userid</th>
-            <th>Project</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Reference</th>
-            <th>Notes</th>
-            <th>Status</th>
-            <th>Mentorid</th>
-            <th>Dateadded</th>
-            <th>Dateapproved</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('contribution_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.userId }}</td>
-            <td>{{ entity.project }}</td>
-            <td>{{ entity.type }}</td>
-            <td>{{ entity.description }}</td>
-            <td>{{ entity.reference }}</td>
-            <td>{{ entity.notes }}</td>
-            <td>{{ entity.status }}</td>
-            <td>{{ entity.mentorId }}</td>
-            <td>{{ entity.dateAdded|date('Y-m-d H:i:s') }}</td>
-            <td>{{ entity.dateApproved|date('Y-m-d H:i:s') }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('contribution_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('contribution_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block souphpsp_content %}
+<h1>Suas Contribuições</h1>
+
+<div class="s6 gutter">
+	<div id="contrib-approved" class="s6">
+		<h2>Contribuições Aceitas</h2>
+		<ul class="contrib-list approved">
+			{% for contrib in entities.1 %}
+			<li>
+				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
+				<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+				<p class="description">{{ contrib.description }}</p>
+				
+			</li>
+			{% else %}
+			<li class="empty">nenhuma contribuição aceita</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div id="contrib-denied" class="s6">
+		<h2>Contribuições rejeitadas</h2>
+		<ul class="contrib-list denied">
+			{% for contrib in entities.0 %}
+			<li>
+				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
+				<p class="title"><a href="{{ path('contribution_show', { 'id': contrib.id }) }}">{{ contrib.type }}</a> - {{ contrib.project.name }}</p>
+				<p class="description">{{ contrib.description }}</p>
+				<p class="denial">{{ contrib.reasonDenied }}</p>
+			</li>
+			{% else %}
+			<li class="empty">nenhuma contribuição aceita</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+<div id="contrib-pending" class="s6">
+	<h2>Contribuições em avaliação</h2>
+	<ul class="contrib-list pending">
+		{% for contrib in entities.2 %}
+		<li>
+			<p class="date">{{ contrib.dateAdded|date("d/F H:i") }}</p>
+			<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+			<p class="description">{{ contrib.description }}</p>
+		</li>
+		{% else %}
+		<li class="empty">nenhuma contribuição aceita</li>
+		{% endfor %}
+	</ul>
+</div>
+
+
 
 <ul>
     <li>
@@ -53,3 +61,5 @@
         </a>
     </li>
 </ul>
+
+{% endblock %}

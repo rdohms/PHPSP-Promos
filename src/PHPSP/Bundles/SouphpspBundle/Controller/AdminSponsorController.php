@@ -14,7 +14,7 @@ use PHPSP\Bundles\SouphpspBundle\Form\SponsorType;
  *
  * @Route("/admin/sponsor")
  */
-class SponsorController extends Controller
+class AdminSponsorController extends Controller
 {
     /**
      * Lists all Sponsor entities.

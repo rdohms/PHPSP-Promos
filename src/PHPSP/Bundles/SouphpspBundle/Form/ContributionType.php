@@ -39,7 +39,8 @@ class ContributionType extends AbstractType
             ->add('status')
             ->add('mentorId')
             ->add('dateAdded')
-            ->add('dateApproved')
+            ->add('dateRevised')
+            ->add('reasonDenied')
                 
             ->add('projectOther', 'text', array('required' => false, 'label' => 'Outro projeto (não listado)'))
             ->add('typeOther', 'text', array('required' => false, 'label' => 'Outro tipo (não listado)'))

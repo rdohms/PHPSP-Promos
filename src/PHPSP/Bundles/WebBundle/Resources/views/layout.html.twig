@@ -2,22 +2,27 @@
 
 {% block title %}PHPSP{% endblock %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ asset('bundles/web/css/web.css') }}" type="text/css" media="screen">
+{% endblock %}
 
 {% block body %}
-
 	{% render 'WebBundle:Block:topBar' %}
 	<header>
-		
+		<div id="phpsp-header-content" class="s12 centered">
+			<img src="{{ asset('bundles/web/images/logo.png') }}" height="80" alt="">
+		</div>
 	</header>
-
-
-	{% block content %}{% endblock %}
-
-
-	<footer>
 		
+	<div id="phpsp-box" class="s12 centered">
+		<div id="phpsp-content">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+	
+	<footer>
+		PHPSP - Grupo de usuários PHP de São Paulo
 	</footer>
 {% endblock %}
 
-{% block javascript %}{% endblock %}
+{% block javascripts %}{% endblock %}

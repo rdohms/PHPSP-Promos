@@ -1,6 +1,16 @@
 services:
+    phpsp.cache:
+        class: PHPSP\Bundles\WebBundle\Services\Cache\Service
+        arguments: 
+            config: 
+                adapterClass: Doctrine\Common\Cache\MemcacheCache
+                prefix: phpsp_cache_
+                options:
+                    servers: [host: localhost, port: 11211]                    
+                    
     phpsp.twitter.api:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
-        arguments:
+        arguments: 
             twitter: @fos_twitter.api
-            #cache:
+            cache: @phpsp.cache
+                    

@@ -10,11 +10,11 @@ use PHPSP\Bundles\SouphpspBundle\Entity\Project;
 use PHPSP\Bundles\SouphpspBundle\Form\ProjectType;
 
 /**
- * Project controller.
+ * AdminProject controller.
  *
- * @Route("/project")
+ * @Route("/admin/project")
  */
-class ProjectController extends Controller
+class AdminProjectController extends Controller
 {
     /**
      * Lists all Project entities.

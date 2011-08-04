@@ -1,0 +1,26 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+
+<h1>Projetos parceiros</h1>
+
+<p>Quer participar da promoção, quer contribuir com um projeto, mas não sabe por onde começar? Para faciliar seus primeiros passos, procuramos alguns dos melhores projetos para serem parceiros da nossa promoção. Cada um desses projetos indica por onde começar e o que você pode fazer para ajudar eles, veja a lista, escolha um projeto e começe agora mesmo!</p>
+
+<ul>
+	{% for project in projects %}
+	<li>
+		<p>{{project.name}}</p>
+		<p>{{project.about}}</p>
+		<blockquote>
+			<ul>
+				<li>Site: {{project.site}}</li>
+				<li>Repository: {{project.repository}}</li>
+				<li>How to contribute: {{project.howtocontribute}}</li>
+			</ul>
+		</blockquote>
+		<p>{{project.whereToHelp}}</p>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

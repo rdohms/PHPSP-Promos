@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block title %}Welcome!{% endblock %}</title>
-		{% block stylesheets %}{% endblock %}
 
 		<link rel="stylesheet" href="{{ asset('css/reset.css') }}" type="text/css" media="screen">
+		<link rel="stylesheet" href="{{ asset('css/base.css') }}" type="text/css" media="screen">
+		{% block stylesheet %}{% endblock %}
+		
 		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 	</head>
 	<body>

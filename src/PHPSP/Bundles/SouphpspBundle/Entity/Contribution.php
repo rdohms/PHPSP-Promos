@@ -35,17 +35,10 @@ class Contribution
     /**
      * @var object $project
      *
-     * @ORM\OneToOne(targetEntity="Project")
+     * @ORM\ManyToOne(targetEntity="Project")
      */
     private $project;
 
-//    /**
-//     * @var string
-//     * 
-//     * @ORM\Column(type="string", length="200")
-//     */
-//    private $projectOther;
-    
     /**
      * @var string $type
      *
@@ -89,6 +82,13 @@ class Contribution
     private $mentorId;
 
     /**
+     * @var string
+     * 
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $reasonDenied;
+    
+    /**
      * @var datetime $dateAdded
      *
      * @ORM\Column(name="dateAdded", type="datetime")
@@ -98,10 +98,9 @@ class Contribution
     /**
      * @var datetime $dateApproved
      *
-     * @ORM\Column(name="dateApproved", type="datetime", nullable=true)
+     * @ORM\Column(name="dateRevised", type="datetime", nullable=true)
      */
-    private $dateApproved;
-
+    private $dateRevised;
 
     /**
      * Get id
@@ -294,25 +293,35 @@ class Contribution
     }
 
     /**
-     * Set dateApproved
+     * Set $dateApproved
      *
      * @param datetime $dateApproved
      */
-    public function setDateApproved($dateApproved)
+    public function setDateRevised($dateRevised)
     {
-        $this->dateApproved = $dateApproved;
+        $this->dateRevised = $dateRevised;
     }
 
     /**
-     * Get dateApproved
+     * Get $dateApproved
      *
      * @return datetime 
      */
-    public function getDateApproved()
+    public function getDateRevised()
     {
-        return $this->dateApproved;
+        return $this->dateRevised;
     }
     
+    public function getReasonDenied()     
+    {
+        return $this->reasonDenied;
+    }
+
+    public function setReasonDenied($reasonDenied)
+    {
+        $this->reasonDenied = $reasonDenied;
+    }
+
     public function getProjectOther(){}
     public function setProjectOther($projectOther){}
     public function getTypeOther(){}

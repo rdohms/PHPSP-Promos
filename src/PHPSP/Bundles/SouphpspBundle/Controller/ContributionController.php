@@ -20,7 +20,7 @@ use PHPSP\Bundles\SouphpspBundle\Entity\Project;
 class ContributionController extends Controller
 {
     /**
-     * Lists all Contribution entities.
+     * Lists all Contribution entities by this user.
      *
      * @Route("/", name="contribution")
      * @Template()
@@ -28,10 +28,16 @@ class ContributionController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
+        $uid = $this->get('security.context')->getToken()->getUser();
 
-        $entities = $em->getRepository('SouphpspBundle:Contribution')->findAll();
+        $entities = $em->getRepository('SouphpspBundle:Contribution')->findMyContributions($uid);
 
-        return array('entities' => $entities);
+        $contributions = array( array(), array(), array() );
+        foreach($entities as $contribution){
+            $contributions[$contribution->getStatus()][] = $contribution;
+        }
+        
+        return array('entities' => $contributions);
     }
 
     /**

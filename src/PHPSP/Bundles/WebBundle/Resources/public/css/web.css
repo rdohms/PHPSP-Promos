@@ -1,0 +1,91 @@
+HTML {
+background-color: #FFF;
+}
+
+BODY {
+font-family: Tahoma;
+font-size: 12px;
+color: #2C2C29;
+}
+
+.centered { margin: 0 auto; float: none; }
+
+#phpsp-box { 
+	background-color: #FFF; 
+	padding: 10px;
+	clear: both;
+background-color: white;
+
+}
+
+#phpsp-content
+{
+
+}
+
+HEADER
+{
+	height: 80px;
+	background: #63B6F7 url('/bundles/web/images/bg2.png') repeat fixed top left;
+}
+FOOTER
+{
+	color: #FFF; font-size: 80%; text-align:center; padding-top: 5px;
+}
+
+#phpsp-top-bar {
+	padding: 5px 10px 5px 10px; text-align:right; margin: auto 0;
+	height: 20px; background-color:#1269A5; width:100%;
+	color: #FFF;
+}
+#phpsp-top-bar IMG.avatar { height: 15px; width:15px; vertical-align: middle; }
+
+h1 { font-size: 165%; margin: 5px 0 10px 0; font-weight:bold; color:#1B75BB; }
+h2 { font-size: 135%; margin: 5px 0 10px 0; font-weight:bold; color:#000; }
+
+.contrib-list{}
+.contrib-list LI { 
+	margin: 5px 0 10px 0;
+	-webkit-border-radius: 10px 0px 10px 10px;
+	-moz-border-radius: 10px 0px 10px 10px;
+	border-radius: 10px 0px 10px 10px;
+	border:1px solid #858585;
+	background-color:#FFFFFF;
+	-webkit-box-shadow: #B3B3B3 2px 2px 2px;
+	-moz-box-shadow: #B3B3B3 2px 2px 2px; 
+	box-shadow: #B3B3B3 2px 2px 2px;
+	padding: 10px;
+}
+.contrib-list .title { font-size: 110%; font-weight:bold;  }
+.contrib-list .description { margin: 4px 0 4px 0;  }
+.contrib-list .date { font-size: 80%; float:right; color:#BBB; }
+.contrib-list .denial { color:#4E0108; background-color:#EE8D81; padding: 5px; 
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	margin-top: 10px;
+}
+
+#contrib-approved H2{ color:#5F9941; }
+#contrib-denied   H2{ color:#99432E; }
+#contrib-pending  H2{ color:#999126;}
+
+
+/* Home Page */
+#promo-souphpsp {
+	margin: 5px 0 10px 0;
+	-webkit-border-radius: 10px 0px 10px 10px;
+	-moz-border-radius: 10px 0px 10px 10px;
+	border-radius: 10px 0px 10px 10px;
+	border:1px solid #858585;
+	background-color:#FFFFFF;
+	-webkit-box-shadow: #B3B3B3 2px 2px 2px;
+	-moz-box-shadow: #B3B3B3 2px 2px 2px; 
+	box-shadow: #B3B3B3 2px 2px 2px;
+	padding: 10px;
+}
+
+#promo-souphpsp h3 { font-size:90%; color:#1B75BB; float:right; }
+#promo-souphpsp h2 { font-size:140%; font-weight: bold; float:right; clear:both; }
+#promo-souphpsp p  { clear:both; }
+#promo-souphpsp ul { margin: 10px 0 10px 0; }
+#promo-souphpsp ul li { padding: 5px;  }
+#promo-souphpsp a { color:#1B75BB; text-decoration:none; }

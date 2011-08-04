@@ -1,0 +1,51 @@
+<h1>Project list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Site</th>
+            <th>Repository</th>
+            <th>Howtocontribute</th>
+            <th>Contactname</th>
+            <th>Contactemail</th>
+            <th>About</th>
+            <th>Wheretohelp</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('project_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.site }}</td>
+            <td>{{ entity.repository }}</td>
+            <td>{{ entity.howtocontribute }}</td>
+            <td>{{ entity.contactName }}</td>
+            <td>{{ entity.contactEmail }}</td>
+            <td>{{ entity.about }}</td>
+            <td>{{ entity.whereToHelp }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('project_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('project_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('project_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

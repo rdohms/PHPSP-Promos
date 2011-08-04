@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProjectRepository extends EntityRepository
 {
+    
+    public function getActiveProjects()
+    {
+        $qb = $this->createQueryBuilder('p');
+        
+        $qb->andWhere('p.status = ?0');
+        $qb->orderBy('p.name');
+        
+        $qb->setParameter(0, Project::STATUS_OK);
+        
+        return $qb->getQuery()->getResult();
+    }
+    
 }
