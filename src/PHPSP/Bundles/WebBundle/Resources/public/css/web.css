@@ -1,43 +1,25 @@
-HTML {
-background-color: #FFF;
-}
-
-BODY {
-font-family: Tahoma;
-font-size: 12px;
-color: #2C2C29;
-}
-
+/*Standard classes*/
 .centered { margin: 0 auto; float: none; }
+.regular_p p { margin: 1.12em 0; line-height: 1.5em;  }
 
-#phpsp-box { 
-	background-color: #FFF; 
-	padding: 10px;
-	clear: both;
-background-color: white;
+/* Tag redefenition */
+html { background-color: #FFF; }
+body { font-family: Verdana; font-size: 12px; color: #2C2C29; }
+a { color:#1B75BB; text-decoration:none; }
 
-}
+/* Main bits */
 
-#phpsp-content
-{
+#phpsp-box { background-color: #FFF; padding: 10px; clear: both; background-color: white; }
+#phpsp-content { min-height: 450px; }
 
-}
+header { height: 80px; background: #63B6F7 url('/bundles/web/images/bg2.png') repeat fixed top left;}
 
-HEADER
-{
-	height: 80px;
-	background: #63B6F7 url('/bundles/web/images/bg2.png') repeat fixed top left;
-}
-FOOTER
-{
-	color: #FFF; font-size: 80%; text-align:center; padding-top: 5px;
-}
+footer{ color: #000; font-size: 80%; text-align:center; margin-top: 25px; padding: 5px 0 0 0; clear:both; }
+footer .copy { float: left; }
+footer .hosted { float:right; vertical-align:top; }
+footer .hosted IMG { height: 30px; }
 
-#phpsp-top-bar {
-	padding: 5px 10px 5px 10px; text-align:right; margin: auto 0;
-	height: 20px; background-color:#1269A5; width:100%;
-	color: #FFF;
-}
+#phpsp-top-bar { padding: 5px 10px 5px 10px; text-align:right; margin: auto 0; height: 20px; background-color:#1269A5; width:100%; color: #FFF; }
 #phpsp-top-bar IMG.avatar { height: 15px; width:15px; vertical-align: middle; }
 
 h1 { font-size: 165%; margin: 5px 0 10px 0; font-weight:bold; color:#1B75BB; }
@@ -89,3 +71,13 @@ h2 { font-size: 135%; margin: 5px 0 10px 0; font-weight:bold; color:#000; }
 #promo-souphpsp ul { margin: 10px 0 10px 0; }
 #promo-souphpsp ul li { padding: 5px;  }
 #promo-souphpsp a { color:#1B75BB; text-decoration:none; }
+
+#souphpsp_projects { margin: 10px 0 10px 0; }
+#souphpsp_projects li { padding: 10px 0; clear:both;}
+#souphpsp_projects .title {font-size: 135%; font-weight:bold; border-bottom: 2px solid #1B75BB; padding-bottom: 3px;}
+#souphpsp_projects .about { padding: 8px 0;}
+#souphpsp_projects .help { padding: 8px 0;}
+#souphpsp_projects blockquote { float:right; width: 40%; margin: -2px 0px 0 10px; padding: 5px; border: 2px solid #1B75BB;background-color: #95B9CE; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; -webkit-border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; border-radius: 0px 0px 10px 10px;}
+#souphpsp_projects .info_list li { padding: 2px; }
+
+.prize-list { list-style-type: circle; }

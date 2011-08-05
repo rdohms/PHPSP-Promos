@@ -12,9 +12,15 @@ class AuthenticationController extends Controller
      * @Route("/login")
      * @Template()
      */
-    public function loginAction($name)
+    public function loginAction()
     {
-        return array('name' => $name);
+        
+        if ($this->get('security.context')->getToken()->isAuthenticated()) {
+            return $this->redirect('/');
+        }
+                
+        
+        return array();
     }
 
 }

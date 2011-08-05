@@ -12,5 +12,5 @@ services:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
         arguments: 
             twitter: @fos_twitter.api
-            cache: @phpsp.cache
+            cache:   @phpsp.cache
                     

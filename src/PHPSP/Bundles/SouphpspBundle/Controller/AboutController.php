@@ -17,12 +17,12 @@ use PHPSP\Bundles\SouphpspBundle\Form\ProjectType;
 class AboutController extends Controller
 {
     /**
-     * @Route("/", name="project")
+     * @Route("/")
      * @Template()
      */
     public function aboutAction()
     {
-
+        return array();
     }
     
     /**

@@ -1,0 +1,11 @@
+{% extends 'WebBundle::layout.html.twig' %}
+
+{% block content %}
+
+<h1 id="autenticação_necessária!">Autenticação necessária!</h1>
+
+<p>Para participar das promoções do PHPSP, use a sua conta do Twitter para se autenticar</p>
+
+<p><a href="/login_check"><img src="{{ asset('bundles/web/images/sign-in-twitter.png')}}" alt="Entrar usando o Twitter"></a></p>
+
+{% endblock %}

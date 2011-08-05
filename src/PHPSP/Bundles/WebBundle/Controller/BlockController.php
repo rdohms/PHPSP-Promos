@@ -13,15 +13,28 @@ class BlockController extends Controller
      */
     public function topBarAction()
     {
-        $uid = $this->get('security.context')->getToken()->getUser();
+        $token = $this->get('security.context')->getToken();
         
-        $twApi = $this->get('phpsp.twitter.api');
+        if ($token === null) {
+            return array('isLogged' => false, 'loggedUser' => new \stdClass());
+        }
         
-        $userData = $twApi->usersShow($uid);
+        //Get data is Authenticated
+        if ($token->isAuthenticated()) {
+            $uid = $token->getUser();
+            
+            $twApi = $this->get('phpsp.twitter.api');
+            $userData = $twApi->usersShow($uid);
+            
+            return array(
+                'isLogged' => $token->isAuthenticated(),
+                'loggedUser' => $userData
+            );
+        }
         
         return array(
-            'isLogged' => ($uid),
-            'loggedUser' => $userData
+            'isLogged' => $token->isAuthenticated(),
+            'loggedUser' => new \stdClass()
         );
     }
 }

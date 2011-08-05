@@ -16,6 +16,7 @@ class ProjectType extends AbstractType
             ->add('howtocontribute')
             ->add('contactName')
             ->add('contactEmail')
+            ->add('contactTwitter')
             ->add('about')
             ->add('whereToHelp')
         ;

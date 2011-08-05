@@ -70,6 +70,13 @@ class Project
     private $contactEmail;
 
     /**
+     * @var string $contactTwitter
+     *
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $contactTwitter;
+
+    /**
      * @var text $about
      *
      * @ORM\Column(name="about", type="text", nullable=true)
@@ -270,7 +277,17 @@ class Project
         $this->status = $status;
     }
 
-        
+    public function getContactTwitter()     
+    {
+        return $this->contactTwitter;
+    }
+
+    public function setContactTwitter($contactTwitter)
+    {
+        $this->contactTwitter = $contactTwitter;
+    }
+
+            
     public function __toString()
     {
         return $this->getName();

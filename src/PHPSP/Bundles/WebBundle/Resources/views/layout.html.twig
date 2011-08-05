@@ -10,7 +10,7 @@
 	{% render 'WebBundle:Block:topBar' %}
 	<header>
 		<div id="phpsp-header-content" class="s12 centered">
-			<img src="{{ asset('bundles/web/images/logo.png') }}" height="80" alt="">
+			<a href="/"><img src="{{ asset('bundles/web/images/logo.png') }}" height="80" alt=""></a>
 		</div>
 	</header>
 		
@@ -21,7 +21,10 @@
 	</div>
 	
 	<footer>
-		PHPSP - Grupo de usuários PHP de São Paulo
+		<div class="s12 centered">
+			<p class="copy">PHPSP - Grupo de usuários PHP de São Paulo - &copy; 2008-{{"now"|date("Y")}}</p>
+			<p class="hosted">Hospedado por: <a href="http://www.servergrove.com/"><img src="{{asset('bundles/web/images/servergrove.png')}}" alt="Server Grove"></a></p>
+		</div>
 	</footer>
 {% endblock %}
 
