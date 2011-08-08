@@ -2,7 +2,7 @@
 
 namespace PHPSP\Bundles\SouphpspBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use PHPSP\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -44,7 +44,9 @@ class AboutController extends Controller
      */
     public function sponsorsAction()
     {
+        $sponsors = $this->getEM()->getRepository('SouphpspBundle:Sponsor')->getSponsorsInOrder();
         
+        return array('sponsors' => $sponsors);
     }
 
     

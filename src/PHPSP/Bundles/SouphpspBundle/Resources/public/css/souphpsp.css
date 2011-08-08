@@ -13,6 +13,11 @@
 #souphpsp_projects blockquote { float:right; width: 40%; margin: -2px 0px 0 10px; padding: 5px; border: 2px solid #1B75BB;background-color: #95B9CE; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; -webkit-border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; border-radius: 0px 0px 10px 10px;}
 #souphpsp_projects .info_list li { padding: 2px; }
 
+/* Sponsor List */
+#souphpsp_sponsors { margin: 10px 0 10px 0; }
+#souphpsp_sponsors div.sponsor{ height: 150px; vertical-align: middle; }
+#souphpsp_sponsors img { max-width: 219px; max-height: 150px;}
+
 /* Contribution list */
 .contrib-list{}
 .contrib-list LI { margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }

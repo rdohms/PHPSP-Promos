@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Sponsor
 {
+    const BRONZE   = 0;
+    const SILVER   = 1;
+    const GOLD     = 2;
+    const PLATINUM = 3;
+    
     /**
      * @var integer $id
      *
@@ -43,6 +48,13 @@ class Sponsor
     private $logo;
 
 
+    /**
+     * @var string $category
+     * 
+     * @ORM\Column(type="integer")
+     */
+    private $category;
+    
     /**
      * Get id
      *
@@ -112,4 +124,16 @@ class Sponsor
     {
         return $this->logo;
     }
+    
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+
 }

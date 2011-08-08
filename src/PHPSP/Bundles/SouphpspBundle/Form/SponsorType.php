@@ -13,6 +13,7 @@ class SponsorType extends AbstractType
             ->add('name')
             ->add('site')
             ->add('logo')
+            ->add('category')
         ;
     }
 

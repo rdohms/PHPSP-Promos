@@ -12,7 +12,7 @@ use PHPSP\Bundles\SouphpspBundle\Form\ProjectType;
 /**
  * AdminProject controller.
  *
- * @Route("/admin/project")
+ * @Route("/souphpsp/admin/project")
  */
 class AdminProjectController extends Controller
 {

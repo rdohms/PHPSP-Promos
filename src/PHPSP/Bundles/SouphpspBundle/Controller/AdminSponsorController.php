@@ -12,7 +12,7 @@ use PHPSP\Bundles\SouphpspBundle\Form\SponsorType;
 /**
  * Sponsor controller.
  *
- * @Route("/admin/sponsor")
+ * @Route("souphpsp/admin/sponsor")
  */
 class AdminSponsorController extends Controller
 {

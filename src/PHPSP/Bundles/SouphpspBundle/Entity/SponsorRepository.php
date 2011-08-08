@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class SponsorRepository extends EntityRepository
 {
+    
+    public function getSponsorsInOrder()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->orderBy('s.category', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
 }

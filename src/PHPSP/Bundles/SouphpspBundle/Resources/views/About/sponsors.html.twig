@@ -1,0 +1,20 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<div class="regular_p">	
+
+	<h1>Patrocinadores</h1>
+
+	<p>Não seria possível realizar esta promoção sem o apoio de nossos patrocinadores, eles nos possibilitam oferecer prêmios, realizar eventos e manter toda estrutura de apoio para que todos possamos sair ganhando nesta promoção.</p>
+
+	<p>Tome um minuto para conhecer os nossos patrocinadores e aprender um pouco mais sobre o que fazem.</p>
+
+	<div id="souphpsp_sponsors" class="s12">
+		{% for sponsor in sponsors %}
+		<div class="sponsor s3 {% if loop.index is not divisibleby(4) %}gutter{% endif %}">
+			<a href="{{sponsor.site}}" title="{{sponsor.name}}"><img src="{{ asset(sponsor.logo) }}" alt="{{sponsor.name}}"></a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
