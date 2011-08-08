@@ -327,5 +327,4 @@ class Contribution
     public function getTypeOther(){}
     public function setTypeOther($typeOther){}
 
-
 }

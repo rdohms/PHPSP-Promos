@@ -1,0 +1,27 @@
+/* Main Page */
+
+/* About Page */
+.prize-list { list-style-type: circle; }
+
+
+/* Project List */
+#souphpsp_projects { margin: 10px 0 10px 0; }
+#souphpsp_projects li { padding: 10px 0; clear:both;}
+#souphpsp_projects .title {font-size: 135%; font-weight:bold; border-bottom: 2px solid #1B75BB; padding-bottom: 3px;}
+#souphpsp_projects .about { padding: 8px 0;}
+#souphpsp_projects .help { padding: 8px 0;}
+#souphpsp_projects blockquote { float:right; width: 40%; margin: -2px 0px 0 10px; padding: 5px; border: 2px solid #1B75BB;background-color: #95B9CE; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; -webkit-border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; border-radius: 0px 0px 10px 10px;}
+#souphpsp_projects .info_list li { padding: 2px; }
+
+/* Contribution list */
+.contrib-list{}
+.contrib-list LI { margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }
+
+.contrib-list .title { font-size: 110%; font-weight:bold;  }
+.contrib-list .description { margin: 4px 0 4px 0;  }
+.contrib-list .date { font-size: 80%; float:right; color:#BBB; }
+.contrib-list .denial { color:#4E0108; background-color:#EE8D81; padding: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-top: 10px; }
+
+#contrib-approved H2{ color:#5F9941; }
+#contrib-denied   H2{ color:#99432E; }
+#contrib-pending  H2{ color:#999126;}

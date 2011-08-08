@@ -16,7 +16,9 @@
 	<div class="s4">
 		<h2>Ranking</h2>
 		<ol>
-			<li>rdohms</li>
+			{% for contrib in ranking %}
+			<li>#{{loop.index}}. <a href="http://twitter.com/{{userData[contrib.0.userId].screen_name}}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
+			{% endfor %}
 			<li>augustohp</li>
 			<li>duodraco</li>
 		</ol>

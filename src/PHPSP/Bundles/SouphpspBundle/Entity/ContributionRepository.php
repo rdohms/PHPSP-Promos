@@ -27,4 +27,22 @@ class ContributionRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
     
+    /**
+     * @todo make function return entity in aliased field, not 0
+     * @return type 
+     */
+    public function getTopContributors($limit = 10)
+    {
+    
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->addSelect('COUNT(DISTINCT c.id) as contribs');
+        $qb->addGroupBy('c.userId');
+
+        $qb->orderBy('contribs', 'DESC');
+        
+        $qb->setMaxResults($limit);
+        
+        return $qb->getQuery()->getResult();
+    }
 }

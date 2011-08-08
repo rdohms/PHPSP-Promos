@@ -2,7 +2,7 @@
 
 namespace PHPSP\Bundles\SouphpspBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use PHPSP\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -14,6 +14,33 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        
+        $ranking = $this->getTopContributors();
+
+        return array(
+            'ranking'  => $ranking['ranking'],
+            'userData' => $ranking['userData']
+        );
+    }
+    
+    /**
+     * @todo create local userEntity with user data and add to join
+     */
+    protected function getTopContributors()
+    {
+        $contribRepo = $this->getEM()->getRepository('SouphpspBundle:Contribution');
+        /* @var $contribRepo PHPSP\Bundles\SouphpspBundle\Entity\ContributionRepository */
+        
+        $ranking = $contribRepo->getTopContributors(10);
+        
+        //Retrieve user info
+        $userInfo = array();
+        $twApi = $this->get('phpsp.twitter.api');
+        
+        foreach ($ranking as $contrib) {
+            $userInfo[$contrib[0]->getUserId()] = $twApi->usersShow($contrib[0]->getUserId());
+        }
+        
+        return array( 'ranking' => $ranking, 'userData' => $userInfo );
     }
 }
