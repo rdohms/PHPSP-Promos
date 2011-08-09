@@ -45,4 +45,20 @@ class ContributionRepository extends EntityRepository
         
         return $qb->getQuery()->getResult();
     }
+    
+    public function getStats()
+    {
+        $countDQL = "SELECT COUNT(c.id) FROM SouphpspBundle:Contribution c";
+        
+        $topProjectDQL = "SELECT COUNT(DISTINCT c.id) pCount, c, p FROM SouphpspBundle:Contribution c JOIN c.project p GROUP BY c.project ORDER BY pCount DESC";
+        
+        $statusDQL = "SELECT COUNT(DISTINCT c.id) sCount, c.status FROM SouphpspBundle:Contribution c GROUP BY c.status ORDER BY c.status DESC";
+        
+        $stats = array();
+        $stats['total'] = $this->getEntityManager()->createQuery($countDQL)->getSingleScalarResult();
+        $stats['top_project'] = $this->getEntityManager()->createQuery($topProjectDQL)->setMaxResults(1)->getResult();
+        $stats['status'] = $this->getEntityManager()->createQuery($statusDQL)->getScalarResult();
+        
+        return $stats;
+    }
 }

@@ -2,7 +2,8 @@
 
 /* About Page */
 .prize-list { list-style-type: circle; }
-
+.sponsor_list img{ max-width: 136px; max-height: 40px; }
+.sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
 
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }

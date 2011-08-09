@@ -326,5 +326,4 @@ class Contribution
     public function setProjectOther($projectOther){}
     public function getTypeOther(){}
     public function setTypeOther($typeOther){}
-
 }

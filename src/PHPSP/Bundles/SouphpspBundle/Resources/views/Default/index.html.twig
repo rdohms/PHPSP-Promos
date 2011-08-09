@@ -9,9 +9,17 @@
 		
 		<p><a href="/souphpsp/about">Saiba mais e veja o regulamento aqui</a></p>
 	</div>
-	<div class="s4 gutter">
+	<div class="s4 gutter hgutter">
 		<h2>Estatísticas</h2>
-		<p>bla bla bla</p>
+		<ul>
+			<li><strong>Total de contribuições:</strong> {{stats.total}}</li>
+			<li><strong>Projeto mais ativo:</strong> {{stats.top_project.0.project.name}} ({{stats.top_project.pCount}})</li>
+			{% for status in stats.status %}
+			<li>
+				<strong>Contribuições {% if status.status == 0 %}rejeitadas{% elseif status.status == 1 %}aprovadas{% else %}em avaliação{% endif %}:</strong> {{status.sCount}}
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
 	<div class="s4">
 		<h2>Ranking</h2>
@@ -19,13 +27,15 @@
 			{% for contrib in ranking %}
 			<li>#{{loop.index}}. <a href="http://twitter.com/{{userData[contrib.0.userId].screen_name}}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
 			{% endfor %}
-			<li>augustohp</li>
-			<li>duodraco</li>
 		</ol>
 	</div>
-	<div class="s8">
+	<div class="s8 sponsor_list">
 		<h1 id="patrocinadores">Patrocinadores</h1>
-		
+		{% for sponsor in sponsors %}
+		<div class="sponsor s2 {% if loop.index is not divisibleby(4) %}gutter{% endif %}">
+			<a href="{{sponsor.site}}" title="{{sponsor.name}}"><img src="{{ asset(sponsor.logo) }}" alt="{{sponsor.name}}"></a>
+		</div>
+		{% endfor %}
 	</div>
 </div>
 <div class="s4">
