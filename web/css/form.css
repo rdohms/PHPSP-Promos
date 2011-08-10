@@ -1,0 +1,22 @@
+form div { margin-bottom:7px; clear:both; }
+
+label { display: block; float: left; margin-right:10px; text-align: right; width: 180px; line-height: 25px;}
+label.required:after { content: "*"; padding-left: 3px; color:#991819; }
+input { padding: 5px; border: 1px solid #b9bdc1; width: 300px; color: #797979;  }
+
+input[type="radio"] { padding:0px; width:20px; float:left; }
+
+input:focus{ background-color:#E7E8E7;}
+
+select { padding: 5px; border: 1px solid #b9bdc1; width: 300px; color: #797979;  }
+
+textarea { height:150px; width: 300px; }
+
+button[type="submit"]{
+float: left; margin:10px 0px 10px 180px; font-weight: bold; line-height: 1; padding: 6px 35px; cursor:pointer; color: #fff;
+text-align: center; text-shadow: 0 -1px 1px #64799e;
+background: #a5b8da; background: -moz-linear-gradient(top, #a5b8da 0%, #7089b3 100%); background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#a5b8da), to(#7089b3));
+border: 1px solid #5c6f91;  -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;
+-moz-box-shadow: inset 0 1px 0 0 #aec3e5; -webkit-box-shadow: inset 0 1px 0 0 #aec3e5; box-shadow: inset 0 1px 0 0 #aec3e5;}
+
+button[type="submit"]:hover { background: #848FB2; cursor: pointer; }

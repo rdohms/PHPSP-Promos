@@ -21,7 +21,6 @@ class ContributionType extends AbstractType
             
             ->add('type', 'choice', array(
                 'choice_list' => new \PHPSP\Bundles\SouphpspBundle\Entity\Choice\ContributionTypes(),
-                'expanded' => true,
                 'label' => 'Tipo de contribuição'
             ))
                 
