@@ -19,6 +19,7 @@ use PHPSP\Bundles\SouphpspBundle\Entity\Project;
  */
 class ContributionController extends Controller
 {
+
     /**
      * Lists all Contribution entities by this user.
      *

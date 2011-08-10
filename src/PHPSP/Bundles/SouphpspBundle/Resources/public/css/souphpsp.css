@@ -1,3 +1,12 @@
+/* NAV */
+nav {}
+nav ul { overflow: hidden; display: inline-block; margin: -8px 0 10px 0; }
+nav li { position:relative; float: left; list-style: none; border-right: 1px solid #1B75BB; box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset; -moz-box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset; -webkit-box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset;}
+nav li a { color: #5d5d5d; display: inline-block; padding: 4px 35px 4px; position: relative; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6); z-index:2; text-decoration:none !important; white-space:nowrap;}
+nav li a:hover { color:#1B75BB; }
+
+nav li:first-child a { padding-left:0px; }
+nav li:last-child { border-right: 0px; }
 /* Main Page */
 
 /* About Page */

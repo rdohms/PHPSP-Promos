@@ -1,9 +1,12 @@
-<h1>Project creation</h1>
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Adicionar Projeto</h1>
 
 <form action="{{ path('project_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Criar</button>
     </p>
 </form>
 
@@ -14,3 +17,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}

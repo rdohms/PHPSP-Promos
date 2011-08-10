@@ -1,4 +1,7 @@
-<h1>Project list</h1>
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Projetos</h1>
 
 <table class="records_list">
     <thead>
@@ -7,11 +10,6 @@
             <th>Name</th>
             <th>Site</th>
             <th>Repository</th>
-            <th>Howtocontribute</th>
-            <th>Contactname</th>
-            <th>Contactemail</th>
-            <th>About</th>
-            <th>Wheretohelp</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,11 +20,6 @@
             <td>{{ entity.name }}</td>
             <td>{{ entity.site }}</td>
             <td>{{ entity.repository }}</td>
-            <td>{{ entity.howtocontribute }}</td>
-            <td>{{ entity.contactName }}</td>
-            <td>{{ entity.contactEmail }}</td>
-            <td>{{ entity.about }}</td>
-            <td>{{ entity.whereToHelp }}</td>
             <td>
                 <ul>
                     <li>
@@ -49,3 +42,5 @@
         </a>
     </li>
 </ul>
+
+{% endblock %}

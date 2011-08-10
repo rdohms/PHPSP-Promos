@@ -1,4 +1,8 @@
-<h1>Sponsor creation</h1>
+
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Adicionar novo Patrocinador</h1>
 
 <form action="{{ path('admin_sponsor_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
@@ -14,3 +18,5 @@
         </a>
     </li>
 </ul>
+
+{% endblock %}
