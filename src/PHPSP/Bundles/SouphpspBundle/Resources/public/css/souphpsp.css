@@ -9,10 +9,15 @@ nav li:first-child a { padding-left:0px; }
 nav li:last-child { border-right: 0px; }
 /* Main Page */
 
+
+
 /* About Page */
 .prize-list { list-style-type: circle; }
+.sponsor_list { padding: 8px;}
 .sponsor_list img{ max-width: 136px; max-height: 40px; }
 .sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
+.stats_list li { line-height: 1.5em;  }
+.ranking_list li { line-height: 1.5em;  }
 
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }
@@ -40,3 +45,7 @@ nav li:last-child { border-right: 0px; }
 #contrib-approved H2{ color:#5F9941; }
 #contrib-denied   H2{ color:#99432E; }
 #contrib-pending  H2{ color:#999126;}
+
+/* Boxes */
+.box_default { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; }
+.box_straight_tl { }

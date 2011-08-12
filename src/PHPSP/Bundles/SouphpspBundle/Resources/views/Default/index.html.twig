@@ -9,9 +9,10 @@
 		
 		<p><a href="/souphpsp/about">Saiba mais e veja o regulamento aqui</a></p>
 	</div>
+	
 	<div class="s4 gutter hgutter">
 		<h2>Estatísticas</h2>
-		<ul>
+		<ul class="stats_list">
 			<li><strong>Total de contribuições:</strong> {{stats.total}}</li>
 			<li><strong>Projeto mais ativo:</strong> {{stats.top_project.0.project.name}} ({{stats.top_project.pCount}})</li>
 			{% for status in stats.status %}
@@ -21,9 +22,10 @@
 			{% endfor %}
 		</ul>
 	</div>
+	
 	<div class="s4">
 		<h2>Ranking</h2>
-		<ol>
+		<ol class="ranking_list">
 			{% for contrib in ranking %}
 			<li>#{{loop.index}}. <a href="http://twitter.com/{{userData[contrib.0.userId].screen_name}}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
 			{% endfor %}
