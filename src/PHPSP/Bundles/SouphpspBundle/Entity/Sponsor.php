@@ -136,4 +136,8 @@ class Sponsor
     }
 
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

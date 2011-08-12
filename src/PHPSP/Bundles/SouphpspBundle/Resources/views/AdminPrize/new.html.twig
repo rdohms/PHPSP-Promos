@@ -1,0 +1,16 @@
+<h1>Prize creation</h1>
+
+<form action="{{ path('souphpsp_admin_prize_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('souphpsp_admin_prize') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
