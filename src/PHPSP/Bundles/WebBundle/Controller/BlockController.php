@@ -21,7 +21,7 @@ class BlockController extends Controller
         
         //Get data is Authenticated
         if ($token->isAuthenticated()) {
-            $uid = $token->getUser();
+            $uid = $token->getUser()->getUsername();
             
             $twApi = $this->get('phpsp.twitter.api');
             $userData = $twApi->usersShow($uid);

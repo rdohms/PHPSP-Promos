@@ -29,7 +29,7 @@ class ContributionController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $uid = $this->get('security.context')->getToken()->getUser();
+        $uid = $this->get('security.context')->getToken()->getUser()->getUsername();
 
         $entities = $em->getRepository('SouphpspBundle:Contribution')->findMyContributions($uid);
 
@@ -76,7 +76,7 @@ class ContributionController extends Controller
         $entity = new Contribution();
         
         //Define logged user id
-        $entity->setUserId($this->get('security.context')->getToken()->getUser());
+        $entity->setUserId($this->get('security.context')->getToken()->getUser()->getUsername());
         
         $form   = $this->createForm(new ContributionType(), $entity);
 
@@ -102,7 +102,10 @@ class ContributionController extends Controller
         $form->bindRequest($request);
 
         $this->createNotListedProject($form, $entity);
-                
+        
+        //Update UserId
+        $entity->setUserId($this->get('security.context')->getToken()->getUser()->getUsername());
+        
         if ($form->isValid()) {
 
             //Set Default fields

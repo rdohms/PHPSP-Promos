@@ -14,7 +14,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        
         $ranking = $this->getTopContributors();
 
         $sponsors = $this->getEM()->getRepository('SouphpspBundle:Sponsor')->getSponsorsInOrder();

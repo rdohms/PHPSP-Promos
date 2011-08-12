@@ -14,7 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $uid = $this->get('security.context')->getToken()->getUser();
+        $uid = $this->get('security.context')->getToken()->getUser()->getUsername();
         
         $twApi = $this->get('phpsp.twitter.api');
         

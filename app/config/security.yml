@@ -10,8 +10,8 @@ security:
         - "%kernel.root_dir%/../vendor/bundles/FOS/TwitterBundle/Resources/config/security_factories.xml"
 
     providers:
-        fos_twitter:
-            id: fos_twitter.auth
+         fos_twitter:
+             id: phpsp.twitter.auth
 
     firewalls:
         dev:
@@ -22,6 +22,7 @@ security:
             anonymous: ~
             fos_twitter: true
             logout: ~
+            provider: fos_twitter
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

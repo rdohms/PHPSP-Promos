@@ -13,4 +13,10 @@ services:
         arguments: 
             twitter: @fos_twitter.api
             cache:   @phpsp.cache
+            
+    phpsp.twitter.auth:
+        class: PHPSP\Bundles\WebBundle\Services\Twitter\Security\TwitterProvider
+        arguments:
+            twitter: @fos_twitter.service
+            container: @service_container
                     
