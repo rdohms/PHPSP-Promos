@@ -32,11 +32,9 @@
 
 			<h2>Quais são os prêmios?</h2>
 			<ul class="prize-list">
-				<li><strong>01</strong> Kit PHPSP: Camisa + caneca</li>
-				<li><strong>05</strong> Camisas php|architect</li>
-				<li><strong>02</strong> Xbox com 2 controles e 1 jogo</li>
-				<li><strong>05</strong> e-books de sua escolha da php|architect</li>
-				<li><strong>100</strong> assinaturas para os 100 primeiros a completar 10 contribuições</li>
+				{% for prize in prizes%}
+				<li><strong>{{"%1$02d"|format(prize.quantity)}}</strong> {{prize.name}} ({{prize.sponsor.name}})</li>
+				{% endfor %}
 				<li>mais prêmios serão anunciados durante o concurso...</li>
 			</ul>
 

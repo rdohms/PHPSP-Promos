@@ -22,7 +22,11 @@ class AboutController extends Controller
      */
     public function aboutAction()
     {
-        return array();
+        $prizes = $this->getEM()->getRepository('SouphpspBundle:Prize')->findAll();
+        
+        return array(
+            'prizes' => $prizes
+        );
     }
     
     /**
