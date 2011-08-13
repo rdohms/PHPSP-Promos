@@ -18,6 +18,8 @@ class DefaultController extends Controller
 
         $sponsors = $this->getEM()->getRepository('SouphpspBundle:Sponsor')->getSponsorsInOrder();
         
+        $prizes = $this->getEM()->getRepository('SouphpspBundle:Prize')->findAll();
+        
         $stats = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getStats();
         
         $stats['top_project'] = array_shift($stats['top_project']);
@@ -26,6 +28,7 @@ class DefaultController extends Controller
             'ranking'  => $ranking['ranking'],
             'userData' => $ranking['userData'],
             'sponsors' => $sponsors,
+            'prizes'   => $prizes,
             'stats'    => $stats,
         );
     }

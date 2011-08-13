@@ -45,7 +45,7 @@ class Prize
     /**
      * @var object $sponsor
      *
-     * @ORM\Column(name="sponsor", type="object")
+     * @ORM\ManyToOne(targetEntity="Sponsor")
      */
     private $sponsor;
 
@@ -140,7 +140,7 @@ class Prize
     /**
      * Get sponsor
      *
-     * @return object 
+     * @return Sponsor 
      */
     public function getSponsor()
     {

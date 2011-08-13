@@ -7,17 +7,21 @@ nav li a:hover { color:#1B75BB; }
 
 nav li:first-child a { padding-left:0px; }
 nav li:last-child { border-right: 0px; }
+
 /* Main Page */
-
-
+.stats_list li { line-height: 1.5em;  }
+.ranking_list li { line-height: 1.5em;  }
+.prize_list li .prize {  width:300px; height:80px; 
+margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10px 0px 10px 0px; border-radius: 10px 0px 10px 0px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; }
+.prize_list li .prize .quantity { float:right; font-weight:bold; padding:2px; background-color:#FFF; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin: 3px; padding:3px;  }
+.prize_list li .info { font-size: 80%; margin-top: -10px; padding: 3px; }
 
 /* About Page */
 .prize-list { list-style-type: circle; }
 .sponsor_list { padding: 8px;}
 .sponsor_list img{ max-width: 136px; max-height: 40px; }
 .sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
-.stats_list li { line-height: 1.5em;  }
-.ranking_list li { line-height: 1.5em;  }
+
 
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }

@@ -1,3 +1,6 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
 <h1>Prize edit</h1>
 
 <form action="{{ path('souphpsp_admin_prize_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
@@ -20,3 +23,5 @@
         </form>
     </li>
 </ul>
+
+{% endblock %}

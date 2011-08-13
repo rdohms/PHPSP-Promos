@@ -13,7 +13,7 @@ class PrizePictures implements ChoiceListInterface
         foreach(new \DirectoryIterator(__DIR__ . '/../../Resources/public/images/prizes') as $file)
         {
             if ($file->isFile()) {
-                $files[$file->getRealPath()] = $file->getBasename();
+                $files['bundles/souphpsp/images/prizes/' . $file->getBasename()] = $file->getBasename();
             }
             
         }

@@ -42,6 +42,18 @@
 </div>
 <div class="s4">
 	<h2>Prêmios</h2>
+	<ul class="prize_list">
+		{% for prize in prizes %}
+		<li>
+			<div style="background-image: url('{{ asset(prize.picture) }}');" class="prize">
+				<div class="quantity">{{prize.quantity}}x</div>
+			</div>
+			<div id="prize_{{prize.id}}" class="info">
+				{{prize.description}}
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 </div>
 
 {% endblock %}
