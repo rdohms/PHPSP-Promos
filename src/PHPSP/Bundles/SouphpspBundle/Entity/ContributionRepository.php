@@ -27,6 +27,20 @@ class ContributionRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
     
+    public function getByStatus($status)
+    {
+        
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.status = ?0');
+        
+        $qb->setParameter(0, $status);
+        
+        $qb->orderBy('c.dateApproved', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
     /**
      * @todo make function return entity in aliased field, not 0
      * @return type 

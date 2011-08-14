@@ -53,3 +53,15 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 /* Boxes */
 .box_default { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; }
 .box_straight_tl { }
+
+/* Admin Contrib List*/
+.admin_contrib_list { }
+.admin_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }
+.admin_contrib_list li .user_info { font-size: 80%; }
+.admin_contrib_list li .title { font-size:110%; font-weight: bold; }
+.admin_contrib_list li .title a { font-size:80%; font-weight: normal; }
+.admin_contrib_list li .desc { padding: 5px; }
+.admin_contrib_list li .reference {  }
+.admin_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; }
+.admin_contrib_list li .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
+.admin_contrib_list li .cmds { float:right; font-size: 90%; font-weight: bold; }

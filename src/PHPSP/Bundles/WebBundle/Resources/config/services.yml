@@ -19,4 +19,10 @@ services:
         arguments:
             twitter: @fos_twitter.service
             container: @service_container
-                    
+                
+    phpsp.twitter.twig.extension:
+        class: PHPSP\Bundles\WebBundle\Services\Twitter\Twig\Extension
+        arguments:
+            twitter: @phpsp.twitter.api
+        tags:
+            - { name: twig.extension }

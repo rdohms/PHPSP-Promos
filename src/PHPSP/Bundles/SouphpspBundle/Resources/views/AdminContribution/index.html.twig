@@ -1,0 +1,28 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1 id="gerenciamento_de_contribuições">Gerenciamento de Contribuições</h1>
+
+<p>
+	Mostrando: Contribuições 
+	{% if status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::APPROVED')  %}
+	Aprovadas
+	{% elseif status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::DENIED') %}
+	Rejeitadas
+	{% elseif status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') %}
+	Pendentes
+	{% endif %}
+</p>
+<ul class="admin_contrib_list">
+	{% for contrib in contribs %}
+	<li>
+		<p class="cmds"><a href="{{ path('souphpsp_admin_contribution_edit', { 'id': contrib.id }) }}">Aprovar/Rejeitar</a></p>
+		<p class="notes"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
+		<p class="user_info">{{ getTwitterInfo(contrib.userId).screen_name }}, {{ contrib.dateAdded|date("d/mY H:i") }}</p>
+		<p class="title">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
+		<p class="desc">{{ contrib.description }}</p>
+		
+	</li>
+	{% endfor %}
+</ul>
+{% endblock%}

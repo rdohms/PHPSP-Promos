@@ -2,7 +2,7 @@
 
 namespace PHPSP\Bundles\SouphpspBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use PHPSP\Controller\Controller;
 use Symfony\Component\Form\FormError;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
