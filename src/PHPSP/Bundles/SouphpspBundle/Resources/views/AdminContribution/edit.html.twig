@@ -1,0 +1,46 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Aprovar/Rejeitar Contribuição</h1>
+
+<div class="admin_contrib_info centered">
+	<img src="{{ getTwitterInfo(entity.userId).profile_image_url }}" alt="{{ getTwitterInfo(entity.userId).screen_name }}">
+	<p><strong>Autor:</strong> {{getTwitterInfo(entity.userId).screen_name}}</p>
+	<p><strong>Tipo:</strong> {{ entity.type }}</p>
+	<p><strong>Projeto:</strong> {{ entity.project.name }}</p>
+	<p><strong>Referência:</strong> {{entity.reference}}</p>
+	<p><strong>Descrição:</strong></p>
+	<p class="p">{{entity.description}}</p>
+	<p><strong>Observações:</strong></p>
+	<p class="p">{{entity.notes}}</p>
+</div>
+
+<form action="{{ path('souphpsp_admin_contribution_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+
+	{{ form_errors(edit_form) }}
+
+	{{ form_row(edit_form.status) }}
+	{{ form_row(edit_form.reasonDenied) }}
+	{{ form_row(edit_form._token) }}
+
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('souphpsp_admin_contribution') }}">
+            Voltar para lista de contribuições
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('souphpsp_admin_contribution_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

@@ -4,21 +4,29 @@
 <h1 id="gerenciamento_de_contribuições">Gerenciamento de Contribuições</h1>
 
 <p>
-	Mostrando: Contribuições 
+	Mostrando: <span class="admin_contrib_show_{{status}}">Contribuições 
 	{% if status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::APPROVED')  %}
 	Aprovadas
 	{% elseif status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::DENIED') %}
 	Rejeitadas
 	{% elseif status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') %}
 	Pendentes
-	{% endif %}
+	{% endif %}</span>
+</p>
+<p class='admin_contrib_links'>
+	<a href="{{ path('souphpsp_admin_contribution', { 'filterStatus': constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::APPROVED') }) }}">aprovadas</a>
+	| <a href="{{ path('souphpsp_admin_contribution', { 'filterStatus': constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::DENIED') }) }}">reprovadas</a>
+	| <a href="{{ path('souphpsp_admin_contribution', { 'filterStatus': constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') }) }}">pendentes</a>
 </p>
 <ul class="admin_contrib_list">
 	{% for contrib in contribs %}
 	<li>
+		<img src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
+		{% if status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') %}
 		<p class="cmds"><a href="{{ path('souphpsp_admin_contribution_edit', { 'id': contrib.id }) }}">Aprovar/Rejeitar</a></p>
+		{% endif %}
 		<p class="notes"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
-		<p class="user_info">{{ getTwitterInfo(contrib.userId).screen_name }}, {{ contrib.dateAdded|date("d/mY H:i") }}</p>
+		<p class="user_info"><a href="http://www.twitter.com/{{ getTwitterInfo(contrib.userId).screen_name }}">{{ getTwitterInfo(contrib.userId).screen_name }}</a>, {{ contrib.dateAdded|date("d/mY H:i") }}</p>
 		<p class="title">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
 		<p class="desc">{{ contrib.description }}</p>
 		

@@ -35,11 +35,16 @@ class ContributionType extends AbstractType
             ->add('notes', null, array(
                 'label' => 'Observações'
             ))
-            ->add('status')
+                
+            ->add('status', 'choice', array(
+                  'choices' => array( 1 => 'Aprovar', 0 => 'Rejeitar'),
+                  'label' => 'Ação'
+            ))
+                
             ->add('mentorId')
             ->add('dateAdded')
-            ->add('dateRevitsed')
-            ->add('reasonDenied')
+            ->add('dateRevised')
+            ->add('reasonDenied', null, array('label' => "Motivo da rejeição"))
                 
             ->add('projectOther', 'text', array('required' => false, 'label' => 'Outro projeto (não listado)'))
             ->add('typeOther', 'text', array('required' => false, 'label' => 'Outro tipo (não listado)'))

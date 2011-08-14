@@ -32,7 +32,7 @@ abstract class Controller extends SymfonyController
         if ($token === null) return null;
         if ($token->isAuthenticated() === false) return null;
         
-        $uid = $token->getUser();
+        $uid = $token->getUser()->getUsername();
             
         //Get Twitter Infor
         $twApi = $this->get('phpsp.twitter.api');
