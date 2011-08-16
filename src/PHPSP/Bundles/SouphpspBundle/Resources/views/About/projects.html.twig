@@ -4,7 +4,7 @@
 
 <h1>Projetos parceiros</h1>
 
-<p>Quer participar da promoção, quer contribuir com um projeto, mas não sabe por onde começar? Para faciliar seus primeiros passos, procuramos alguns dos melhores projetos para serem parceiros da nossa promoção. Cada um desses projetos indica por onde começar e o que você pode fazer para ajudar eles, veja a lista, escolha um projeto e começe agora mesmo!</p>
+<p class="regular_p">Quer participar da promoção, quer contribuir com um projeto, mas não sabe por onde começar? Para faciliar seus primeiros passos, procuramos alguns dos melhores projetos para serem parceiros da nossa promoção. Cada um desses projetos indica por onde começar e o que você pode fazer para ajudar eles, veja a lista, escolha um projeto e começe agora mesmo!</p>
 
 <ul id="souphpsp_projects">
 	{% for project in projects %}
@@ -12,9 +12,9 @@
 		<p class="title">{{project.name}}</p>
 		<blockquote>
 			<ul class="info_list">
-				<li><strong>Site:</strong> {{project.site}}</li>
-				<li><strong>Repository:</strong> {{project.repository}}</li>
-				<li><strong>How to contribute:</strong> {{project.howtocontribute}}</li>
+				<li><strong>Site:</strong> <a href="{{project.site}}">{{project.site}}</a></li>
+				<li><strong>Repository:</strong> <a href="{{project.repository}}">{{project.repository}}</a></li>
+				<li><strong>How to contribute:</strong> <a href="{{project.howtocontribute}}">{{project.howtocontribute}}</a></li>
 				<li><strong>Contato:</strong> {{project.contactName}} (<a href="http://twitter.com/{{project.contactTwitter}}">{{project.contactTwitter}}</a>)</li>
 			</ul>
 		</blockquote>

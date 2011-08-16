@@ -34,9 +34,7 @@
 	<div class="s8 sponsor_list">
 		<h1 id="patrocinadores">Patrocinadores</h1>
 		{% for sponsor in sponsors %}
-		<div class="sponsor s2 {% if loop.index is not divisibleby(4) %}gutter{% endif %}">
-			<a href="{{sponsor.site}}" title="{{sponsor.name}}"><img src="{{ asset(sponsor.logo) }}" alt="{{sponsor.name}}"></a>
-		</div>
+		<a href="{{sponsor.site}}" title="{{sponsor.name}}"><img src="{{ asset(sponsor.logo) }}" alt="{{sponsor.name}}"></a>
 		{% endfor %}
 	</div>
 </div>

@@ -34,6 +34,28 @@ class DefaultController extends Controller
     }
     
     /**
+     * @Route("souphpsp/u/{username}")
+     * @Template()
+     */
+    public function userAction($username)
+    {
+        $twApi = $this->get('phpsp.twitter.api');
+        $user = $twApi->usersShow(null, $username);
+        
+        if (isset($user->id)) {
+            $contributions = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getUserContributions($user->id);
+        } else {
+            $contributions = null;
+        }
+        
+        return array(
+            'contribs' => $contributions,
+            'user'     => $user
+        );
+        
+    }
+    
+    /**
      * @todo create local userEntity with user data and add to join
      */
     protected function getTopContributors()
@@ -53,4 +75,6 @@ class DefaultController extends Controller
         
         return array( 'ranking' => $ranking, 'userData' => $userInfo );
     }
+    
+    
 }

@@ -12,16 +12,29 @@ use Doctrine\ORM\EntityRepository;
  */
 class ContributionRepository extends EntityRepository
 {
+    public function getUserContributions($uid)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.userId = ?0');
+        $qb->andWhere('c.status != ?1');
+        
+        $qb->setParameter(0, $uid);
+        $qb->setParameter(1, 0);
+        
+        $qb->orderBy('c.dateRevised', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
     
     public function findMyContributions($uid)
     {
-        
         $qb = $this->createQueryBuilder('c');
         $qb->where('c.userId = ?0');
         
         $qb->setParameter(0, $uid);
         
-        $qb->orderBy('c.dateApproved', 'DESC');
+        $qb->orderBy('c.dateRevised', 'DESC');
         $qb->orderBy('c.dateAdded', 'DESC');
         
         return $qb->getQuery()->getResult();
