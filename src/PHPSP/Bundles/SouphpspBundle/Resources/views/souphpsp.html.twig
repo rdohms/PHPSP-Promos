@@ -16,9 +16,13 @@
 			<li><a href="/souphpsp/about/projects">Projetos</a></li>
 			<li><a href="/souphpsp/about/sponsors">Patrocinadores</a></li>
 			<li><a href="/souphpsp/about">Regulamento</a></li>
+			{% if is_granted('ROLE_ADMIN') %}
+			<li><a href="/souphpsp/admin">Administração</a></li>
+			{% endif %}
 		</ul>
 	</nav>
 	{% block souphpsp_content %}{% endblock %}
+	
 {% endblock %}
 
 

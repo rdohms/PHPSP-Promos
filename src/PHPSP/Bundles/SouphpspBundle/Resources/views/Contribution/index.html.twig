@@ -3,6 +3,8 @@
 {% block souphpsp_content %}
 <h1>Suas Contribuições</h1>
 
+<p class="group hgutter"><a href="{{ path('contribution_new') }}">Adicionar nova contribuição</a></p>
+
 <div class="s6 gutter">
 	<div id="contrib-approved" class="s6">
 		<h2>Contribuições Aceitas</h2>
@@ -54,15 +56,5 @@
 		{% endfor %}
 	</ul>
 </div>
-
-
-
-<ul>
-    <li>
-        <a href="{{ path('contribution_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
 
 {% endblock %}

@@ -20,7 +20,7 @@ class BlockController extends Controller
         }
         
         //Get data is Authenticated
-        if ($token->isAuthenticated()) {
+        if ($token->isAuthenticated() && $token->getUser() !== 'anon.') {
             $uid = $token->getUser()->getUsername();
             
             $twApi = $this->get('phpsp.twitter.api');
@@ -33,7 +33,7 @@ class BlockController extends Controller
         }
         
         return array(
-            'isLogged' => $token->isAuthenticated(),
+            'isLogged' => false,
             'loggedUser' => new \stdClass()
         );
     }
