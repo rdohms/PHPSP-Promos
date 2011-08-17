@@ -17,6 +17,9 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        open:
+            pattern: ^/souphpsp/u/
+            security: false
         secured:
             pattern:    ^/
             anonymous: ~
@@ -25,5 +28,7 @@ security:
             provider: fos_twitter
 
     access_control:
+        - { path: ^/souphpsp/admin/, roles: ROLE_ADMIN  }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        
