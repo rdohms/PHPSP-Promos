@@ -88,4 +88,17 @@ class ContributionRepository extends EntityRepository
         
         return $stats;
     }
+    
+    public function getStatsByUser($id)
+    {
+        $countDQL = "SELECT COUNT(c.id) FROM SouphpspBundle:Contribution c WHERE c.userId = ?0";
+        
+        $statusDQL = "SELECT COUNT(DISTINCT c.id) sCount, c.status FROM SouphpspBundle:Contribution c WHERE c.userId = ?0 GROUP BY c.status ORDER BY c.status ASC";
+        
+        $stats = array();
+        $stats['total'] = $this->getEntityManager()->createQuery($countDQL)->setParameter(0, $id)->getSingleScalarResult();
+        $stats['status'] = $this->getEntityManager()->createQuery($statusDQL)->setParameter(0, $id)->getScalarResult();
+        
+        return $stats;
+    }
 }

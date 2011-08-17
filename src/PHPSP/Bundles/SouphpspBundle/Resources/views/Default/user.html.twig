@@ -11,8 +11,11 @@
 	</div>
 	<div class="s5 user_stats">
 		<ul>
-			<li>Contribuições: 45</li>
-			<li>32 aceitas, 13 pendentes, 1 rejeitada</li>
+			<li>Contribuições: {{stats.total}}</li>
+			<li>{% for status in stats.status %}
+			{{status.sCount}} {% if status.status == 0 %}rejeitadas{% elseif status.status == 1 %}aprovadas{% else %}em avaliação{% endif %}{% if not(loop.last) %},{% endif %}
+			{% endfor %}
+			</li>
 		</ul>
 	</div>	
 </div>
@@ -20,13 +23,13 @@
 
 <div class="s12">
 	<h1 id="">Contribuições</h1>
-	<ul class="admin_contrib_list">
+	<ul class="user_contrib_list">
 		{% for contrib in contribs %}
 		<li>
 			<img src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
 			<p class="notes"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
 			<p class="user_info"><a href="http://www.twitter.com/{{ getTwitterInfo(contrib.userId).screen_name }}">{{ getTwitterInfo(contrib.userId).screen_name }}</a>, {{ contrib.dateAdded|date("d/mY H:i") }}</p>
-			<p class="title">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
+			<p class="title status_{{contrib.status}}">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
 			<p class="desc">{{ contrib.description }}</p>
 
 		</li>

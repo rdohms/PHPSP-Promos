@@ -82,3 +82,16 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .about_user .user_info {  }
 .about_user .user_info img { float:left; margin: 0 10px 0 0; }
 .about_user .user_stats {}
+.user_contrib_list { }
+.user_contrib_list img{ float:left; margin: 0 10px 0 0; }
+.user_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }
+.user_contrib_list li .status_1 { color:#5F9941;  }
+.user_contrib_list li .status_2 { color:#999126; }
+.user_contrib_list li .user_info { font-size: 80%; margin-bottom: 3px; }
+.user_contrib_list li .title { font-size:110%; font-weight: bold; }
+.user_contrib_list li .title a { font-size:80%; font-weight: normal; }
+.user_contrib_list li .desc { padding: 5px; }
+.user_contrib_list li .reference {  }
+.user_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; }
+.user_contrib_list li .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
+.user_contrib_list li .cmds { float:right; font-size: 90%; font-weight: bold; }

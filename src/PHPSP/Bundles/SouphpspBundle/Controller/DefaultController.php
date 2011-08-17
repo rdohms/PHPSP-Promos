@@ -42,15 +42,17 @@ class DefaultController extends Controller
         $twApi = $this->get('phpsp.twitter.api');
         $user = $twApi->usersShow(null, $username);
         
-        if (isset($user->id)) {
-            $contributions = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getUserContributions($user->id);
-        } else {
-            $contributions = null;
+        if ( ! isset($user->id)) {
+            $this->redirect('/souphpsp');
         }
-        
+
+        $contributions = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getUserContributions($user->id);
+        $stats = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getStatsByUser($user->id);
+
         return array(
             'contribs' => $contributions,
-            'user'     => $user
+            'user'     => $user,
+            'stats'    => $stats
         );
         
     }
