@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface,
  */
 class UserProvider implements UserProviderInterface
 {
-    protected $admins = array('9453502');
+    protected $admins = array('9453502', '15416900');
     
     /**
      * {@inheritDoc}
