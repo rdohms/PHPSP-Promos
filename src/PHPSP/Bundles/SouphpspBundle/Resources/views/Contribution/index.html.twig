@@ -12,7 +12,7 @@
 			{% for contrib in entities.1 %}
 			<li>
 				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-				<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+				<p class="title">{{ contrib.type }} - {{ contrib.project.name }} <a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 				<p class="description">{{ contrib.description }}</p>
 				
 			</li>
@@ -28,7 +28,7 @@
 			{% for contrib in entities.0 %}
 			<li >
 				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-				<p class="title"><a href="{{ path('contribution_show', { 'id': contrib.id }) }}">{{ contrib.type }}</a> - {{ contrib.project.name }}</p>
+				<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 				<p class="description">{{ contrib.description }}</p>
 				<p class="denial group">
 					"{{ contrib.reasonDenied }}"<br>
@@ -48,7 +48,7 @@
 		{% for contrib in entities.2 %}
 		<li>
 			<p class="date">{{ contrib.dateAdded|date("d/F H:i") }}</p>
-			<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+			<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 			<p class="description">{{ contrib.description }}</p>
 		</li>
 		{% else %}

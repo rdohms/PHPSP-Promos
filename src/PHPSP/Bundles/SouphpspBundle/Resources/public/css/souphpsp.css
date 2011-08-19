@@ -22,7 +22,6 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .sponsor_list img{ max-width: 136px; max-height: 40px; margin-right: 20px; }
 .sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
 
-
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }
 #souphpsp_projects li { padding: 10px 0; clear:both;}
@@ -43,6 +42,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .contrib-list LI { margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }
 
 .contrib-list .title { font-size: 110%; font-weight:bold;  }
+.contrib-list .title img { padding-left: 5px; vertical-align: text-bottom; }
 .contrib-list .description { margin: 4px 0 4px 0;  }
 .contrib-list .date { font-size: 80%; float:right; color:#BBB; }
 .contrib-list .denial { color:#4E0108; background-color:#EE8D81; padding: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-top: 10px; clear:both; }
@@ -51,6 +51,20 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 #contrib-approved H2{ color:#5F9941; }
 #contrib-denied   H2{ color:#99432E; }
 #contrib-pending  H2{ color:#999126;}
+
+/* Contrib Show  */
+.show-contrib {}
+.show-contrib .desc { margin: 15px 0; }
+.show-contrib .date { color:#BABABA; font-style: italic;  }
+.show-contrib .status_box { padding: 10px; line-height: 1.5em; text-align: right; }
+.show-contrib p.status_0 { font-weight: bold; font-size: 115%; color:#99432E; }
+.show-contrib p.status_1 { font-weight: bold; font-size: 115%; color:#5F9941; }
+.show-contrib p.status_2 { font-weight: bold; font-size: 115%; color:#999126; }
+.show-contrib .mentor { font-style: italic; color:#BABABA; }
+.show-contrib .reason { font-style: italic; font-size:105%;  }
+
+.delete button{ margin: 20px 0; }
+
 
 /* Boxes */
 .box_default { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; }

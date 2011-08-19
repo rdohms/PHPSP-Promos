@@ -28,10 +28,9 @@ class ContributionController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $uid = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $uid = $this->getLoggedUser()->id;
 
-        $entities = $em->getRepository('SouphpspBundle:Contribution')->findMyContributions($uid);
+        $entities = $this->getEM()->getRepository('SouphpspBundle:Contribution')->findMyContributions($uid);
 
         $contributions = array( array(), array(), array() );
         foreach($entities as $contribution){
@@ -49,9 +48,8 @@ class ContributionController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('SouphpspBundle:Contribution')->find($id);
+        $entity = $this->getEM()->getRepository('SouphpspBundle:Contribution')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Contribution entity.');
@@ -75,11 +73,7 @@ class ContributionController extends Controller
     {
         $entity = new Contribution();
         
-        //Define logged user id
-        $entity->setUserId($this->get('security.context')->getToken()->getUser()->getUsername());
-        
         $form   = $this->createForm(new ContributionType(), $entity);
-
         
         return array(
             'entity' => $entity,
@@ -103,18 +97,17 @@ class ContributionController extends Controller
 
         $this->createNotListedProject($form, $entity);
         
-        //Update UserId
-        $entity->setUserId($this->get('security.context')->getToken()->getUser()->getUsername());
-        
         if ($form->isValid()) {
 
+            //Update UserId
+            $entity->setUserId($this->getLoggedUser()->id);
+            
             //Set Default fields
             $entity->setStatus(Contribution::PENDING);
-            $entity->setDateAdded(new \DateTime());
+            $entity->setDateAdded(new \DateTime('now'));
             
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($entity);
-            $em->flush();
+            $this->getEM()->persist($entity);
+            $this->getEM()->flush();
             
             return $this->redirect($this->generateUrl('contribution_show', array('id' => $entity->getId())));
             
@@ -123,70 +116,6 @@ class ContributionController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
-    }
-
-    /**
-     * Displays a form to edit an existing Contribution entity.
-     *
-     * @Route("/{id}/edit", name="contribution_edit")
-     * @Template()
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('SouphpspBundle:Contribution')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Contribution entity.');
-        }
-
-        $editForm = $this->createForm(new ContributionType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-     * Edits an existing Contribution entity.
-     *
-     * @Route("/{id}/update", name="contribution_update")
-     * @Method("post")
-     * @Template("SouphpspBundle:Contribution:edit.html.twig")
-     */
-    public function updateAction($id)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('SouphpspBundle:Contribution')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Contribution entity.');
-        }
-
-        $editForm   = $this->createForm(new ContributionType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        $request = $this->getRequest();
-
-        $editForm->bindRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('contribution_edit', array('id' => $id)));
-        }
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         );
     }
 
@@ -204,20 +133,35 @@ class ContributionController extends Controller
         $form->bindRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('SouphpspBundle:Contribution')->find($id);
+            $entity = $this->getEM()->getRepository('SouphpspBundle:Contribution')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Contribution entity.');
             }
+            
+            //Only the owner
+            if ($entity->getUserId() !== $this->getLoggedUser()->id) {
+                throw new Exception("You cannot delete this entity");
+            }
+            
+            //Only if pending
+            if ($entity->getStatus() !== Contribution::PENDING) {
+                throw new Exception("You cannot delete this entity");
+            }
 
-            $em->remove($entity);
-            $em->flush();
+            $this->getEM()->remove($entity);
+            $this->getEM()->flush();
         }
 
         return $this->redirect($this->generateUrl('contribution'));
     }
 
+    /**
+     * Creates a simple for for delete button
+     * 
+     * @param int $id
+     * @return Symfony\Component\Form\Form 
+     */
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
@@ -226,8 +170,15 @@ class ContributionController extends Controller
         ;
     }
     
+    /**
+     * Creates a new project based on "other" inputed by the user
+     * 
+     * @param Symfony\Component\Form\Form $form
+     * @param Contribution $entity
+     */
     protected function createNotListedProject($form, $entity)
     {
+        //See if a project was selected
         if ($form->get('project')->getData() !== null) {
             return;
         }
@@ -242,14 +193,21 @@ class ContributionController extends Controller
         $project = new Project();
         $project->setName($projectName);
         $project->setStatus(Project::STATUS_PENDING);
-        $this->getDoctrine()->getEntityManager()->persist($project);
+        $this->getEM()->persist($project);
 
         //Add to project key
         $entity->setProject($project);
     }
     
+    /**
+     * Adds a new Contribution Type
+     * 
+     * @param Symfony\Component\Form\Form $form
+     * @param Contribution $entity
+     */
     protected function selectOtherContributionType($form, $entity)
     {
+        // Check that no type selected
         if ($form->get('type')->getData() !== 'Outro') {
             return;
         }
@@ -263,4 +221,5 @@ class ContributionController extends Controller
         //Define
         $entity->setType( $otherType );
     }
+    
 }
