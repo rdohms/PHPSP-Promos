@@ -21,7 +21,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .sponsor_list { padding: 8px;}
 .sponsor_list img{ max-width: 136px; max-height: 40px; margin-right: 20px; }
 .sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
-
+.besponsor { margin-top: 35px;  }
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }
 #souphpsp_projects li { padding: 10px 0; clear:both;}

@@ -43,7 +43,7 @@ class AboutController extends Controller
     }
     
     /**
-     * @Route("/sponsors", name="project")
+     * @Route("/sponsors", name="sponsors")
      * @Template()
      */
     public function sponsorsAction()
@@ -53,5 +53,12 @@ class AboutController extends Controller
         return array('sponsors' => $sponsors);
     }
 
-    
+    /**
+     * @Route("/be-a-sponsor", name="beasponsor")
+     * @Template()
+     */
+    public function beASponsorAction()
+    {
+        return array();
+    }
 }
