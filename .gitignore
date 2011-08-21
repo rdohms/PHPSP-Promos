@@ -4,6 +4,6 @@ app/cache/*
 app/logs/*
 app/config/parameters.ini
 build/
-vendor/
 .DS_Store
 *.tmproj
+tmp/*
