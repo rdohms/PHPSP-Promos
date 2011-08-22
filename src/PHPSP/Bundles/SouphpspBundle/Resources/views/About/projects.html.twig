@@ -18,8 +18,8 @@
 				<li><strong>Contato:</strong> {{project.contactName}} (<a href="http://twitter.com/{{project.contactTwitter}}">{{project.contactTwitter}}</a>)</li>
 			</ul>
 		</blockquote>
-		<p class="about">{{project.about}}</p>
-		<p class="help">{{project.whereToHelp}}</p>
+		<p class="about">{{project.about|raw|nl2br}}</p>
+		<p class="help">{{project.whereToHelp|raw|nl2br}}</p>
 	</li>
 	{% endfor %}
 </ul>

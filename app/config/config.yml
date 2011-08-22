@@ -67,5 +67,10 @@ fos_twitter:
     consumer_secret: h652phkyGHXNvrpVjPU0feRA9Vd0X2C3vplKcze4Y0
     callback_url: %site_url%/login_check
         
-
+# Twig Extensions
+services:
+ twig.extension.text:
+     class: Twig_Extensions_Extension_Text
+     tags:
+         - { name: twig.extension }
             
