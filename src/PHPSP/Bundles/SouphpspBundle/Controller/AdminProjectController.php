@@ -24,9 +24,7 @@ class AdminProjectController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entities = $em->getRepository('SouphpspBundle:Project')->findAll();
+        $entities = $this->getEM()->getRepository('SouphpspBundle:Project')->findAll();
 
         return array('entities' => $entities);
     }
@@ -39,9 +37,7 @@ class AdminProjectController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('SouphpspBundle:Project')->find($id);
+        $entity = $this->getEM()->getRepository('SouphpspBundle:Project')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Project entity.');
@@ -82,13 +78,16 @@ class AdminProjectController extends Controller
     {
         $entity  = new Project();
         $request = $this->getRequest();
+        
         $form    = $this->createForm(new ProjectType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($entity);
-            $em->flush();
+            
+            $entity->setStatus(Project::STATUS_OK);
+            
+            $this->getEM()->persist($entity);
+            $this->getEM()->flush();
 
             return $this->redirect($this->generateUrl('project_show', array('id' => $entity->getId())));
             
@@ -108,9 +107,7 @@ class AdminProjectController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('SouphpspBundle:Project')->find($id);
+        $entity = $this->getEM()->getRepository('SouphpspBundle:Project')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Project entity.');
@@ -135,9 +132,7 @@ class AdminProjectController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('SouphpspBundle:Project')->find($id);
+        $entity = $this->getEM()->getRepository('SouphpspBundle:Project')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Project entity.');
@@ -151,8 +146,8 @@ class AdminProjectController extends Controller
         $editForm->bindRequest($request);
 
         if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
+            $this->getEM()->persist($entity);
+            $this->getEM()->flush();
 
             return $this->redirect($this->generateUrl('project_edit', array('id' => $id)));
         }
@@ -178,8 +173,7 @@ class AdminProjectController extends Controller
         $form->bindRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('SouphpspBundle:Project')->find($id);
+            $entity = $this->getEM()->getRepository('SouphpspBundle:Project')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Project entity.');
