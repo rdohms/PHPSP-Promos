@@ -61,4 +61,13 @@ class AboutController extends Controller
     {
         return array();
     }
+    
+    /**
+     * @Route("/list-a-project", name="listaproject")
+     * @Template()
+     */
+    public function listAProjectAction()
+    {
+        return array();
+    }
 }

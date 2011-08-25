@@ -3,6 +3,7 @@ app/bootstrap*
 app/cache/*
 app/logs/*
 app/config/parameters.ini
+app/phpunit.xml
 build/
 vendor/
 .DS_Store
