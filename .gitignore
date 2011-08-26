@@ -7,7 +7,4 @@ app/phpunit.xml
 build/
 .DS_Store
 *.tmproj
-<<<<<<< HEAD
 tmp/*
-=======
->>>>>>> a11dcd1906748df33feb3e004da9f1d5fae32e8f

@@ -1,7 +1,6 @@
-PHPSP
+Sou PHPSP
 =========
 
-<<<<<<< HEAD
 Sistema criado como Bundle do Symfony 2 que é utilizado na promoção que está ocorrendo (ou vai ocorrer, ou já ocorreu) organizada pelo PHPSP.
 
 O intuito do sistema é manter as contribuições de usuários cadastrados nos projetos do sistema. Os projetos nunca estão hospedados dentro do PHPSP, pelo contrário. Usamos o repositório de versões do próprio projeto para seguir os _commits_ de usuários.
@@ -52,7 +51,7 @@ Você pode contribuir com o projeto de diversas formas:
 * Sugerindo/Melhorando implementações
 * Doando 1 milhão de reais para o rdohms@phpsp.org.br e augusto@phpsp.org.br
 * Tuitando: "Arrumem trabalho para o @rdohms fora do país para ele deixar o @augustohp em paz"
-=======
+
 Este site é uma ferramenta de auxílio para promoções e eventos do PHPSP. Ele usa autenticação por Twitter para manter 
 uma lista de usuários.
 
@@ -60,4 +59,3 @@ uma lista de usuários.
 
 Promoção que visa aumentar o número de contribuidores Open Source. O sistema disponivel aqui mantem uma lista de 
 contribuições.
->>>>>>> a11dcd1906748df33feb3e004da9f1d5fae32e8f
