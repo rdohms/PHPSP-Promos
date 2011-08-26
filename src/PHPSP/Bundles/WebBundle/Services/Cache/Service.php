@@ -23,6 +23,7 @@ class Service implements Cache
         if (method_exists($adapter, 'initialize')) {
             $adapter->initialize($config);
         }
+        $this->_initMemcache($adapter);
     }
     
     /**
@@ -41,7 +42,7 @@ class Service implements Cache
             return false;
         }
         // Prevent stupid PHP error of missing extension (if other driver is being used)
-        $memcacheClassName = 'Memcache';
+        $memcacheClassName = '\\Doctrine\\Common\\Cache\\MemcacheCache';
         $memcache          = new $memcacheClassName();
 
         // Default server configuration
