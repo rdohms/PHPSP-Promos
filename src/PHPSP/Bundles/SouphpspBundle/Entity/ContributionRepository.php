@@ -12,16 +12,29 @@ use Doctrine\ORM\EntityRepository;
  */
 class ContributionRepository extends EntityRepository
 {
+    public function getUserContributions($uid)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.userId = ?0');
+        $qb->andWhere('c.status != ?1');
+        
+        $qb->setParameter(0, $uid);
+        $qb->setParameter(1, 0);
+        
+        $qb->orderBy('c.dateRevised', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
     
     public function findMyContributions($uid)
     {
-        
         $qb = $this->createQueryBuilder('c');
         $qb->where('c.userId = ?0');
         
         $qb->setParameter(0, $uid);
         
-        $qb->orderBy('c.dateApproved', 'DESC');
+        $qb->orderBy('c.dateRevised', 'DESC');
         $qb->orderBy('c.dateAdded', 'DESC');
         
         return $qb->getQuery()->getResult();
@@ -72,6 +85,19 @@ class ContributionRepository extends EntityRepository
         $stats['total'] = $this->getEntityManager()->createQuery($countDQL)->getSingleScalarResult();
         $stats['top_project'] = $this->getEntityManager()->createQuery($topProjectDQL)->setMaxResults(1)->getResult();
         $stats['status'] = $this->getEntityManager()->createQuery($statusDQL)->getScalarResult();
+        
+        return $stats;
+    }
+    
+    public function getStatsByUser($id)
+    {
+        $countDQL = "SELECT COUNT(c.id) FROM SouphpspBundle:Contribution c WHERE c.userId = ?0";
+        
+        $statusDQL = "SELECT COUNT(DISTINCT c.id) sCount, c.status FROM SouphpspBundle:Contribution c WHERE c.userId = ?0 GROUP BY c.status ORDER BY c.status ASC";
+        
+        $stats = array();
+        $stats['total'] = $this->getEntityManager()->createQuery($countDQL)->setParameter(0, $id)->getSingleScalarResult();
+        $stats['status'] = $this->getEntityManager()->createQuery($statusDQL)->setParameter(0, $id)->getScalarResult();
         
         return $stats;
     }

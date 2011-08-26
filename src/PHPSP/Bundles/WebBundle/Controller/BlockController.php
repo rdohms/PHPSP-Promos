@@ -5,6 +5,7 @@ namespace PHPSP\Bundles\WebBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Security\Core\User\User;
 
 class BlockController extends Controller
 {
@@ -20,7 +21,7 @@ class BlockController extends Controller
         }
         
         //Get data is Authenticated
-        if ($token->isAuthenticated()) {
+        if ($token->isAuthenticated() && $token->getUser() instanceof User) {
             $uid = $token->getUser()->getUsername();
             
             $twApi = $this->get('phpsp.twitter.api');
@@ -33,7 +34,7 @@ class BlockController extends Controller
         }
         
         return array(
-            'isLogged' => $token->isAuthenticated(),
+            'isLogged' => false,
             'loggedUser' => new \stdClass()
         );
     }

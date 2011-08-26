@@ -6,7 +6,7 @@ services:
                 adapterClass: Doctrine\Common\Cache\MemcacheCache
                 prefix: phpsp_cache_
                 options:
-                    servers: [host: localhost, port: 11211]                    
+                    servers: [{host: %cache.host%, port: %cache.port%}]                    
                     
     phpsp.twitter.api:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api

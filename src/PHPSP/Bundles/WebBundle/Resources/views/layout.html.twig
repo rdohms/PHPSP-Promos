@@ -8,13 +8,9 @@
 
 {% block body %}
 	{% render 'WebBundle:Block:topBar' %}
-	<header>
-		<div id="phpsp-header-content" class="s12 centered">
-			<a href="/"><img src="{{ asset('bundles/web/images/logo.png') }}" height="80" alt=""></a>
-		</div>
-	</header>
+
 		
-	<div id="phpsp-box" class="s12 centered">
+	<div id="phpsp-box" class="s12 centered group">
 		<div id="phpsp-content">
 			{% block content %}{% endblock %}
 		</div>

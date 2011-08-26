@@ -3,6 +3,8 @@
 {% block souphpsp_content %}
 <h1>Suas Contribuições</h1>
 
+<p class="group hgutter"><a href="{{ path('contribution_new') }}">Adicionar nova contribuição</a></p>
+
 <div class="s6 gutter">
 	<div id="contrib-approved" class="s6">
 		<h2>Contribuições Aceitas</h2>
@@ -10,7 +12,7 @@
 			{% for contrib in entities.1 %}
 			<li>
 				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-				<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+				<p class="title">{{ contrib.type }} - {{ contrib.project.name }} <a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 				<p class="description">{{ contrib.description }}</p>
 				
 			</li>
@@ -24,14 +26,17 @@
 		<h2>Contribuições rejeitadas</h2>
 		<ul class="contrib-list denied">
 			{% for contrib in entities.0 %}
-			<li>
+			<li >
 				<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-				<p class="title"><a href="{{ path('contribution_show', { 'id': contrib.id }) }}">{{ contrib.type }}</a> - {{ contrib.project.name }}</p>
+				<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 				<p class="description">{{ contrib.description }}</p>
-				<p class="denial">{{ contrib.reasonDenied }}</p>
+				<p class="denial group">
+					"{{ contrib.reasonDenied }}"<br>
+					<a href="http://twitter.com/{{getTwitterInfo(contrib.mentorId).screen_name}}" class="mentor" >{{getTwitterInfo(contrib.mentorId).screen_name}}</a>
+				</p>
 			</li>
 			{% else %}
-			<li class="empty">nenhuma contribuição aceita</li>
+			<li class="empty">nenhuma contribuição rejeitada</li>
 			{% endfor %}
 		</ul>
 	</div>
@@ -43,23 +48,13 @@
 		{% for contrib in entities.2 %}
 		<li>
 			<p class="date">{{ contrib.dateAdded|date("d/F H:i") }}</p>
-			<p class="title">{{ contrib.type }} - {{ contrib.project.name }}</p>
+			<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
 			<p class="description">{{ contrib.description }}</p>
 		</li>
 		{% else %}
-		<li class="empty">nenhuma contribuição aceita</li>
+		<li class="empty">nenhuma contribuição aguardando avaliação</li>
 		{% endfor %}
 	</ul>
 </div>
-
-
-
-<ul>
-    <li>
-        <a href="{{ path('contribution_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
 
 {% endblock %}
