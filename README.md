@@ -21,23 +21,23 @@ Instalação
 
 Descomprima o projeto ou clone o repositório do _GitHub_, e configure seu servidor __HTTP__ para apontar para o diretório _web/_ que se encontra na raiz do projeto.
 
-O _.htaccess_ (existente no diretório _web/_) redireciona por padrão para o arquivo **app\_dev.php** que contém informações de _debug_ e e _profiling_ sobre a aplicação, caso você deseje utilizar a aplicação para produção, tenha certeza de fazer o _.htaccess_ apontar para o arquivo __app.php__.
+Adicione a configuração de environment em seu virtual host, "dev" para desenvolvimento e "prod" para produção:
+
+	SetEnv APP_ENV "dev"
 
 A __configuração de Banco de Dados__ deve ser feita no arquivo _/app/config/parameters.ini_. O arquivo não existe, mas você deve renomear o arquivo _/app/config.parameters.ini.sample_ para o nome correto e configurá-lo corretamente seguindo as informações de acesso a banco. Importante: o usuário de acesso do banco de dados (neste instante) deve ter acesso para criar as tabelas necessárias.
 
 Para criar o __Banco de Dados__ e baixar os componentes necessários para esta aplicação funcionar, você deve utilizar o terminal (_bash_ ou compatível) e executar os seguintes comandos:
 
-<pre>
-$ cd path_para_aplicacao
-$ php bin/vendors install
-$ php bin/console doctrine:schema:create
-$ php cache:clean
-$ php cache:warmup
-</pre>
+	$ cd path_para_aplicacao
+	$ ./bin/vendors install
+	$ app/console doctrine:schema:create
+	$ app/console cache:clean
+	$ app/console cache:warmup
 
 Todos os comandos acima devem ser executados sem nenhum erro. Caso qualquer erro seja exibido durante a execução de um comando, não tente nem executar o próximo, pare, verifique os __requisitos mínimos__ e tente novamente.
 
-Mais informações sobre como o projeto está estruturado, como funcionam os diferentes ambientes, configurações, etc, veja a página do "Symfony 2":http://www.symphony.com.
+Mais informações sobre como o projeto está estruturado, como funcionam os diferentes ambientes, configurações, etc, veja a página do [Symfony 2](http://www.symphony.com).
 
 Contribuindo
 ------------
@@ -51,9 +51,6 @@ Você pode contribuir com o projeto de diversas formas:
 * Sugerindo/Melhorando implementações
 * Doando 1 milhão de reais para o rdohms@phpsp.org.br e augusto@phpsp.org.br
 * Tuitando: "Arrumem trabalho para o @rdohms fora do país para ele deixar o @augustohp em paz"
-
-Este site é uma ferramenta de auxílio para promoções e eventos do PHPSP. Ele usa autenticação por Twitter para manter 
-uma lista de usuários.
 
 ## Sou PHPSP e Contribuo
 
