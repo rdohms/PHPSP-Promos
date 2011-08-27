@@ -6,44 +6,52 @@ use Doctrine\Common\Cache\Cache;
 
 class Service implements Cache
 {
+    /**
+     * @var Doctrine\Common\Cache\Cache 
+     */
     protected $cacheDriver;
     
+    /**
+     * Constructor
+     * 
+     * @param array $config 
+     */
     public function __construct($config)
     {
-        
-        $adapterClass      = $config['adapterClass'];
-        $adapter           = new $adapterClass();
-        $this->cacheDriver = $adapter;
+        // Get Adpter instance
+        $adapterClass = $config['adapterClass'];
+        $adapter = new $adapterClass();
 
         // Define namespace for cache
         if (isset($config['prefix']) && ! empty($config['prefix'])) {
             $adapter->setNamespace($config['prefix']);
         }
 
+        // Initialize
         if (method_exists($adapter, 'initialize')) {
+            
             $adapter->initialize($config);
+            
+        } else if ($adapter instanceof \Doctrine\Common\Cache\MemcacheCache) {
+            
+            $this->initMemcache($config, $adapter);
+            
         }
-        $this->_initMemcache($adapter);
+
+        $this->cacheDriver = $adapter;
     }
     
     /**
-     * Initializes MemCache configuration and instance.
-     *
-     * @param   Doctrine\Common\Cache\Cache
-     * @return  boolean
+     * Initializes Memcache cache
+     * 
+     * @param array $config
+     * @param Doctrine\Common\Cache\Cache $adapter 
      */
-    protected function _initMemcache(Cache $adapter)
+    private function initMemcache($config, $adapter)
     {
-        if (!class_exists('\\Doctrine\\Common\\Cache\\MemcacheCache')) {
-            return false;
-        }
-        
-        if (!$adapter instanceof \Doctrine\Common\Cache\MemcacheCache) {
-            return false;
-        }
         // Prevent stupid PHP error of missing extension (if other driver is being used)
-        $memcacheClassName = '\\Doctrine\\Common\\Cache\\MemcacheCache';
-        $memcache          = new $memcacheClassName();
+        $memcacheClassName = 'Memcache';
+        $memcache = new $memcacheClassName();
 
         // Default server configuration
         $defaultServer = array(
@@ -56,21 +64,23 @@ class Service implements Cache
             'status'        => true
         );
 
-        if (!isset($config['options']['servers'])) {
-            return false;
-        }
-        foreach ($config['options']['servers'] as $server) {
-            $server = array_replace_recursive($defaultServer, $server);
+        //Override
+        if (isset($config['options']['servers'])) {
+            
+            foreach ($config['options']['servers'] as $server) {
+                $server = array_replace_recursive($defaultServer, $server);
 
-            $memcache->addServer(
-                $server['host'],
-                $server['port'],
-                $server['persistent'],
-                $server['weight'],
-                $server['timeout'],
-                $server['retryInterval'],
-                $server['status']
-            );
+                $memcache->addServer(
+                    $server['host'],
+                    $server['port'],
+                    $server['persistent'],
+                    $server['weight'],
+                    $server['timeout'],
+                    $server['retryInterval'],
+                    $server['status']
+                );
+            }
+            
         }
 
         $adapter->setMemcache($memcache);
