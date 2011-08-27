@@ -2,8 +2,8 @@
 
 /*Standard classes*/
 .centered { margin: 0 auto; float: none; }
-.regular_p, .regular_p p { margin: 1.12em 0; line-height: 1.5em;  }
-git
+p.regular_p, .regular_p p { margin: 1.12em 0; line-height: 1.5em;  }
+
 /* Tag redefenition */
 html { background-color: #FFF; }
 body { font-family: Verdana; font-size: 12px; color: #2C2C29; }
@@ -24,6 +24,7 @@ footer{ color: #000; font-size: 80%; text-align:center; margin-top: 25px; paddin
 footer .copy { float: left; }
 footer .hosted { float:right; vertical-align:top; }
 footer .hosted IMG { height: 30px; }
+footer .links { float:left; clear: left; padding: 10px 0 0 0; }
 
 h1 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 250%; margin: 5px 0 10px 0; font-weight:bold; color:#1B75BB; }
 h2 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 225%; margin: 5px 0 10px 0; font-weight:bold; color:#000; }
@@ -31,7 +32,7 @@ h3 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 190%; margin: 5px 
 
 /* Home Page */
 #promo-souphpsp {
-	margin: 5px 0 10px 0;
+
 	-webkit-border-radius: 10px 0px 10px 10px;
 	-moz-border-radius: 10px 0px 10px 10px;
 	border-radius: 10px 0px 10px 10px;
@@ -49,3 +50,5 @@ h3 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 190%; margin: 5px 
 #promo-souphpsp ul { margin: 10px 0 10px 0; }
 #promo-souphpsp ul li { padding: 5px;  }
 #promo-souphpsp a { color:#1B75BB; text-decoration:none; }
+
+.home_about { text-justify:auto; text-align:justify; }
