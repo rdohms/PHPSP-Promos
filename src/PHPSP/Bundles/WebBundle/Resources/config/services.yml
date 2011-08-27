@@ -6,7 +6,10 @@ services:
                 adapterClass: Doctrine\Common\Cache\MemcacheCache
                 prefix: phpsp_cache_
                 options:
-                    servers: [{host: %cache.host%, port: %cache.port%}]                    
+                    servers: [{host: %cache.host%, port: %cache.port%}]
+                                        
+    phpsp.chart:
+        class: PHPSP\Bundles\WebBundle\Services
                     
     phpsp.twitter.api:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
@@ -26,3 +29,4 @@ services:
             twitter: @phpsp.twitter.api
         tags:
             - { name: twig.extension }
+            
