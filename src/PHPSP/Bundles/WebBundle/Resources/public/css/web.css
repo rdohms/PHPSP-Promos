@@ -24,7 +24,7 @@ footer{ color: #000; font-size: 80%; text-align:center; margin-top: 25px; paddin
 footer .copy { float: left; }
 footer .hosted { float:right; vertical-align:top; }
 footer .hosted IMG { height: 30px; }
-footer .links { float:left; clear: left; padding: 10px 0 0 0; }
+footer .links { float:left; clear: left; padding: 10px 0 0 0stylesheet/less; }
 
 h1 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 250%; margin: 5px 0 10px 0; font-weight:bold; color:#1B75BB; }
 h2 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 225%; margin: 5px 0 10px 0; font-weight:bold; color:#000; }
@@ -47,7 +47,7 @@ h3 { font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 190%; margin: 5px 
 #promo-souphpsp h3 { font-size:150%; color:#1B75BB; float:right; margin: 3px 0; }
 #promo-souphpsp h2 { font-size:230%; font-weight: bold; float:right; clear:both; }
 #promo-souphpsp p  { clear:both; }
-#promo-souphpsp ul { margin: 10px 0 10px 0; }
+#promo-souphpsp ul { margin: 10px 0 10px 0; list-style: none; }
 #promo-souphpsp ul li { padding: 5px;  }
 #promo-souphpsp a { color:#1B75BB; text-decoration:none; }
 

@@ -1,16 +1,18 @@
 <header class="centered">
-	<div class="s12 centered">
-		<div class="logo s6">
-			<a href="/"><img src="{{ asset('bundles/web/images/logo.png') }}" height="60" alt=""></a>
-		</div>
-		<div class="user s6">
-			{% if isLogged %}
-			<p>
-				<img class="avatar" src="http://api.twitter.com/1/users/profile_image?screen_name={{ loggedUser.screen_name }}&size=mini" alt="{{ loggedUser.screen_name }}'s Profile picture"> 
-				<strong>{{ loggedUser.screen_name }}</strong></p>
-			{% else %}
-			<p><a href="/login_check"><img src="{{ asset('bundles/web/images/sign-in-twitter.png')}}" alt="Entrar usando o Twitter"></a></p>
-			{% endif %}	
+	<div class="container">
+		<div class="row">
+			<div class="logo span8 columns">
+				<a href="/"><img src="{{ asset('bundles/web/images/logo.png') }}" height="60" alt=""></a>
+			</div>
+			<div class="user span8 columns">
+				{% if isLogged %}
+				<p>
+					<img class="avatar" src="http://api.twitter.com/1/users/profile_image?screen_name={{ loggedUser.screen_name }}&size=mini" alt="{{ loggedUser.screen_name }}'s Profile picture"> 
+					<strong>{{ loggedUser.screen_name }}</strong></p>
+				{% else %}
+				<p><a href="/login_check"><img src="{{ asset('bundles/web/images/sign-in-twitter.png')}}" alt="Entrar usando o Twitter"></a></p>
+				{% endif %}	
+			</div>
 		</div>
 	</div>
 </header>

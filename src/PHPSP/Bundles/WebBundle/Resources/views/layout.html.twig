@@ -3,25 +3,31 @@
 {% block title %}PHPSP{% endblock %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="{{ asset('bundles/web/css/web.css') }}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ asset('bundles/web/css/web.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
 	{% render 'WebBundle:Block:topBar' %}
 
-		
-	<div id="phpsp-box" class="s12 centered group">
+	<div id="phpsp-box" class="container">
 		<div id="phpsp-content">
 			{% block content %}{% endblock %}
 		</div>
 	</div>
 	
 	<footer>
-		<div class="s12 centered">
-			<p class="copy">PHPSP - Grupo de usuários PHP de São Paulo - &copy; 2008-{{"now"|date("Y")}} - v{{app_version}}</p>
-			<p class="links"><a href="http://www.phpsp.org.br">Blog</a> | <a href="/souphpsp">Sou PHPSP</a></p>
-			<p class="hosted">Hospedado por: <a href="http://www.servergrove.com/"><img src="{{asset('bundles/web/images/servergrove.png')}}" alt="Server Grove"></a></p>
+		<div class="container">
+			<div class="row">
+				<div class="span11 columns">
+					<p class="copy">PHPSP - Grupo de usuários PHP de São Paulo - &copy; 2008-{{"now"|date("Y")}} - v{{app_version}}</p>
+					<p class="links"><a href="http://www.phpsp.org.br">Blog</a> | <a href="/souphpsp">Sou PHPSP</a></p>
+				</div>
+				<div class="span5 columns">
+					<p class="hosted">Hospedado por: <a href="http://www.servergrove.com/"><img src="{{asset('bundles/web/images/servergrove.png')}}" alt="Server Grove"></a></p>
+				</div>
+			</div>
 		</div>
+
 	</footer>
 {% endblock %}
 
