@@ -64,11 +64,15 @@ class ContributionRepository extends EntityRepository
         $qb = $this->createQueryBuilder('c');
         
         $qb->addSelect('COUNT(DISTINCT c.id) as contribs');
+        
+        $qb->andWhere('c.status = ?1');
+        
         $qb->addGroupBy('c.userId');
 
         $qb->orderBy('contribs', 'DESC');
         
         $qb->setMaxResults($limit);
+        $qb->setParameter(1, Contribution::APPROVED);
         
         return $qb->getQuery()->getResult();
     }
