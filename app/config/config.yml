@@ -22,7 +22,7 @@ twig:
     strict_variables: %kernel.debug%
     globals: 
         app_env: %kernel.environment%
-        app_version: "1.0"
+        app_version: "1.0.1"
 
 # Assetic Configuration
 assetic:
