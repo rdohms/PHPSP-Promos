@@ -1,24 +1,33 @@
 {% extends 'SouphpspBundle::souphpsp.html.twig' %}
 
 {% block souphpsp_content %}
+
 <h1>Adicionar contribuição</h1>
+<div class="s8 gutter">
 
-<form action="{{ path('contribution_create') }}" method="post" {{ form_enctype(form) }}>
-	{{ form_errors(form) }}
 
-	{{ form_row(form.userId) }}
-	{{ form_row(form.project) }}
-	{{ form_row(form.projectOther) }}
-	{{ form_row(form.type) }}
-	{{ form_row(form.typeOther) }}
-	{{ form_row(form.description) }}
-	{{ form_row(form.reference) }}
-	{{ form_row(form.notes) }}
-	{{ form_row(form._token) }}
-	
-	<p>
-		<button type="submit">Adicionar</button>
-	</p>
-</form>
+	<form action="{{ path('contribution_create') }}" method="post" {{ form_enctype(form) }}>
+		{{ form_errors(form) }}
+
+		{{ form_row(form.userId) }}
+		{{ form_row(form.project) }}
+		{{ form_row(form.projectOther) }}
+		{{ form_row(form.type) }}
+		{{ form_row(form.typeOther) }}
+		{{ form_row(form.description) }}
+		{{ form_row(form.reference) }}
+		{{ form_row(form.notes) }}
+		{{ form_row(form._token) }}
+
+		<p>
+			<button type="submit">Adicionar</button>
+		</p>
+	</form>
+</div>
+<div class="s4">
+	<h2>Atenção!</h2>
+	<p>Só são válidas contribuições feitas ente: <strong>{{souphpsp_date_start|strftime("%d/%B/%Y")}}</strong> até <strong>{{souphpsp_date_end|strftime("%d/%B/%Y")}}</strong> e em um projeto Open Source <strong>relacionado a PHP</strong>.</p>
+</div>
+
 {% endblock %}
 

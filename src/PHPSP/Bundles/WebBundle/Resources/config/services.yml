@@ -26,3 +26,8 @@ services:
             twitter: @phpsp.twitter.api
         tags:
             - { name: twig.extension }
+            
+    phpsp.localedate.twig.extension:
+        class: PHPSP\Twig\Extension\LocaleDate
+        tags:
+            - { name: twig.extension }
