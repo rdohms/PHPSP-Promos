@@ -29,7 +29,7 @@
 			<h2>Ranking</h2>
 			<ol class="ranking_list">
 				{% for contrib in ranking %}
-				<li>#{{loop.index}}. <a href="http://twitter.com/{{userData[contrib.0.userId].screen_name}}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
+				<li>#{{loop.index}}. <a href="{{ path('user_page', { 'username': userData[contrib.0.userId].screen_name }) }}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
 				{% else %}
 				<p>nenhuma contribuição computada</p>
 				{% endfor %}

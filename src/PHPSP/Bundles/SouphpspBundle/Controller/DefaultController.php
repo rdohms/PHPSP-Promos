@@ -34,7 +34,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("souphpsp/u/{username}")
+     * @Route("souphpsp/u/{username}", name="user_page")
      * @Template()
      */
     public function userAction($username)
