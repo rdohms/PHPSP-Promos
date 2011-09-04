@@ -22,6 +22,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .sponsor_list img{ max-width: 136px; max-height: 40px; margin-right: 20px; }
 .sponsor_list div.sponsor{ vertical-align: middle; text-align: center; }
 .besponsor { margin-top: 35px;  }
+
 /* Project List */
 #souphpsp_projects { margin: 10px 0 10px 0; }
 #souphpsp_projects li { padding: 10px 0; clear:both;}
@@ -78,12 +79,12 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .admin_contrib_list { }
 .admin_contrib_list img{ float:left; margin: 0 10px 0 0; }
 .admin_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }
-.admin_contrib_list li .user_info { font-size: 80%; }
+.admin_contrib_list li .user_info { font-size: 80%; padding-bottom: 5px; }
 .admin_contrib_list li .title { font-size:110%; font-weight: bold; }
 .admin_contrib_list li .title a { font-size:80%; font-weight: normal; }
 .admin_contrib_list li .desc { padding: 5px; }
 .admin_contrib_list li .reference {  }
-.admin_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; }
+.admin_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; text-align:right; }
 .admin_contrib_list li .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
 .admin_contrib_list li .cmds { float:right; font-size: 90%; font-weight: bold; }
 .admin_contrib_info { width: 50%; margin: 5px 0 10px 180px; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; line-height:1.5em; }
@@ -101,11 +102,11 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .user_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }
 .user_contrib_list li .status_1 { color:#5F9941;  }
 .user_contrib_list li .status_2 { color:#999126; }
-.user_contrib_list li .user_info { font-size: 80%; margin-bottom: 3px; }
+.user_contrib_list li .user_info { font-size: 80%; padding-bottom: 5px; }
 .user_contrib_list li .title { font-size:110%; font-weight: bold; }
 .user_contrib_list li .title a { font-size:80%; font-weight: normal; }
 .user_contrib_list li .desc { padding: 5px; }
 .user_contrib_list li .reference {  }
-.user_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; }
+.user_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; text-align:right; }
 .user_contrib_list li .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
 .user_contrib_list li .cmds { float:right; font-size: 90%; font-weight: bold; }
