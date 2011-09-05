@@ -9,7 +9,7 @@ services:
                     servers: [{host: %cache.host%, port: %cache.port%}]
                                         
     phpsp.chart:
-        class: PHPSP\Bundles\WebBundle\Services
+        class: PHPSP\Bundles\WebBundle\Services\Graph\Service
                     
     phpsp.twitter.api:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
