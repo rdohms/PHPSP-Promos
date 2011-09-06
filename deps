@@ -64,3 +64,9 @@
 
 [twitteroauth]
     git=http://github.com/kertz/twitteroauth.git
+
+[pChart-php5]
+    git=http://github.com/aweiland/pChart-php5.git
+
+[GoogleChartGenerator]
+    git=git@github.com:rdohms/GoogleChartGenerator.git

@@ -105,4 +105,43 @@ class ContributionRepository extends EntityRepository
         
         return $stats;
     }
+    
+    public function getCountByProject($id = null)
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->addSelect('COUNT(DISTINCT c.id) pCount');
+        $qb->addSelect('c');
+        $qb->addSelect('p');
+        
+        $qb->join('c.project', 'p');
+        
+        $qb->groupBy('c.project');
+        $qb->orderBy('pCount', 'DESC');
+        
+        if ($id !== null) {
+            $qb->where('c.project = ?1');
+            $qb->setParameter(1, $id);
+        }
+        
+        return $qb->getQuery()->getResult();
+    }
+    
+    public function getCountByType($type = null)
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->addSelect('COUNT(DISTINCT c.id) cCount');
+        $qb->addSelect('c');
+        
+        $qb->groupBy('c.type');
+        $qb->orderBy('cCount', 'DESC');
+        
+        if ($type !== null) {
+            $qb->where('c.type = ?1');
+            $qb->setParameter(1, $type);
+        }
+        
+        return $qb->getQuery()->getResult();
+    }
 }
