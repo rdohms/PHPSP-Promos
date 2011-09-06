@@ -119,8 +119,11 @@ class ContributionRepository extends EntityRepository
         $qb->groupBy('c.project');
         $qb->orderBy('pCount', 'DESC');
         
+        $qb->andWhere('c.status != ?0');
+        $qb->setParameter(0, Contribution::DENIED);
+        
         if ($id !== null) {
-            $qb->where('c.project = ?1');
+            $qb->andWhere('c.project = ?1');
             $qb->setParameter(1, $id);
         }
         
@@ -136,9 +139,12 @@ class ContributionRepository extends EntityRepository
         
         $qb->groupBy('c.type');
         $qb->orderBy('cCount', 'DESC');
+                
+        $qb->andWhere('c.status != ?0');
+        $qb->setParameter(0, Contribution::DENIED);
         
         if ($type !== null) {
-            $qb->where('c.type = ?1');
+            $qb->andWhere('c.type = ?1');
             $qb->setParameter(1, $type);
         }
         
