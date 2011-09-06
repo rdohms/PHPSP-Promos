@@ -1,15 +1,15 @@
 <?php
 
-namespace PHPSP\Bundles\WebBundle\Services\Graph;
+namespace PHPSP\Bundles\WebBundle\Services\Chart;
 
 use GoogleChartGenerator;
 
+/**
+ * Builds Charts based on data
+ */
 class Service
 {
-    public function __construct()
-    {
-        
-    }
+    public function __construct() {}
     
     public function pieChart($title, $arcs, $options)
     {

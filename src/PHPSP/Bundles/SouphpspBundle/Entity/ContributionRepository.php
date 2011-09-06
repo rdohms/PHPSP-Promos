@@ -150,4 +150,22 @@ class ContributionRepository extends EntityRepository
         
         return $qb->getQuery()->getResult();
     }
+    
+    public function getCountByStatus($status = null)
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->addSelect('COUNT(DISTINCT c.id) cCount');
+        $qb->addSelect('c');
+        
+        $qb->groupBy('c.status');
+        $qb->orderBy('cCount', 'DESC');
+                
+        if ($status !== null) {
+            $qb->andWhere('c.status = ?1');
+            $qb->setParameter(1, $status);
+        }
+        
+        return $qb->getQuery()->getResult(); 
+    }
 }

@@ -25,8 +25,7 @@ class AdminStatsController extends Controller
      */
     public function indexAction()
     {
-        $projectData = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getCountByProject();
-        $typeData = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getCountByType();
+        $chartBuilder = $this->get('souphpsp.chart.builder');
         
         $chartOptions = array(
             '3d'     => true,
@@ -36,65 +35,16 @@ class AdminStatsController extends Controller
         );
         
         $charts = array();
-        $chartService = $this->get('phpsp.chart');
-        $charts['top_projects'] = $chartService->pieChart(
-                                        'Projetos mais ativos', 
-                                        $this->buildProjectPieChartData($projectData), 
-                                        $chartOptions 
-                                  );
+        $charts['top_projects'] = $chartBuilder->getActiveProjectGraph($chartOptions);
+        $charts['top_types'] = $chartBuilder->getContributionTypeGraph($chartOptions);
         
-        $charts['top_types'] = $chartService->pieChart(
-                                        'Tipos de contribuições', 
-                                        $this->buildTypePieChartData($typeData), 
-                                        $chartOptions 
-                                );
+        $chartOptionsForStatus = $chartOptions;
+        unset($chartOptionsForStatus['color']);
+        $charts['contribution_status'] = $chartBuilder->getContributionStatusGraph($chartOptionsForStatus);
         
         return array(
             'charts' => $charts
         );
-        
-        
     }
  
-    /**
-     *
-     * @param type $resultSet
-     * @return array 
-     */
-    protected function buildProjectPieChartData($resultSet)
-    {
-        $arcs = array();
-        foreach($resultSet as $result) {
-            $arc = array(
-                'data' => $result['pCount'],
-                'options' => array( 
-                    'title' => (string) $result[0]->getProject() . " (".$result['pCount'].")",
-                )
-            );
-            $arcs[] = $arc;
-        }
-        
-        return $arcs;
-    }
-    
-    /**
-     *
-     * @param type $resultSet
-     * @return array 
-     */
-    protected function buildTypePieChartData($resultSet)
-    {
-        $arcs = array();
-        foreach($resultSet as $result) {
-            $arc = array(
-                'data' => $result['cCount'],
-                'options' => array( 
-                    'title' => $result[0]->getType() . " (".$result['cCount'].")",
-                )
-            );
-            $arcs[] = $arc;
-        }
-        
-        return $arcs;
-    }
 }

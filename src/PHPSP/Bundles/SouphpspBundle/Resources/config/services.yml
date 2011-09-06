@@ -1,0 +1,6 @@
+services:
+    souphpsp.chart.builder:
+        class: PHPSP\Bundles\SouphpspBundle\Services\Chart\Builder
+        arguments:
+            doctrine: @doctrine
+            graph: @phpsp.chart
