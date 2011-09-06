@@ -1,0 +1,13 @@
+
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+
+	<h1 id="estatísticas">Estatísticas</h1>
+
+	{% for chart in charts %}
+		<div class="s6 {% if loop.index is not divisibleby(2)  %}gutter{% endif %}">
+			{{ chart.render|raw }}
+		</div>
+	{% endfor %}
+{% endblock %}
