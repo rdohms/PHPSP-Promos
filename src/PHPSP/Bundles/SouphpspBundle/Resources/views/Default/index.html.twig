@@ -37,6 +37,14 @@
 		</div>
 	</div>
 	
+	<div class="s8 group hgutter">
+		{% for chart in charts %}
+			<div class="s4 {% if loop.index is not divisibleby(2)  %}gutter{% endif %}">
+				{{ chart.render|raw }}
+			</div>
+		{% endfor %}
+	</div>
+	
 	<div class="s8 sponsor_list">
 		<h1 id="patrocinadores">Patrocinadores</h1>
 		{% for sponsor in sponsors %}
