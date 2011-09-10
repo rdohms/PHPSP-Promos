@@ -7,18 +7,19 @@
 	{{ form_errors(form) }}
 
 	{{ form_row(form.userId) }}
-	{{ form_row(form.project) }}
-	{{ form_row(form.projectOther) }}
-	{{ form_row(form.type) }}
-	{{ form_row(form.typeOther) }}
-	{{ form_row(form.description) }}
-	{{ form_row(form.reference) }}
-	{{ form_row(form.notes) }}
+	{{ form_row(form.project, { 'class': 'xlarge'}) }}
+	{{ form_row(form.projectOther, {'help': 'Use este campo para informar projetos não listados acima.', 'class': 'xlarge'}) }}
+	{{ form_row(form.type, { 'class': 'xlarge'}) }}
+	{{ form_row(form.typeOther, {'help': 'Use este campo para informar tipos de contribuição não listados acima.', 'class': 'xlarge'}) }}
+	{{ form_row(form.description, { 'class': 'xlarge'}) }}
+	{{ form_row(form.reference, { 'class': 'xlarge'}) }}
+	{{ form_row(form.notes, { 'class': 'xlarge'}) }}
 	{{ form_row(form._token) }}
 	
-	<p>
-		<button type="submit">Adicionar</button>
-	</p>
+	<div class="actions">
+		<button type="submit" class="btn primary">Adicionar</button>
+		<button type="reset" class="btn">Cancel</button>
+	</div>
 </form>
 {% endblock %}
 

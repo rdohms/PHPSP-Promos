@@ -16,7 +16,7 @@ class ContributionType extends AbstractType
                 'class' => 'PHPSP\Bundles\SouphpspBundle\Entity\Project',
                 'required' => false,
                 'empty_value' => "Outro projeto...",
-                'label' => 'Projeto'
+                'label' => 'Projeto',
             ))
             
             ->add('type', 'choice', array(

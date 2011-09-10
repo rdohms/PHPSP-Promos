@@ -31,7 +31,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 #souphpsp_projects .about { padding: 8px 0; line-height: 1.5em;}
 #souphpsp_projects .help { padding: 8px 0; line-height: 1.5em;}
 #souphpsp_projects blockquote { float:right; width: 45%; margin: -11px 0px 0 10px; padding: 5px; border: 2px solid #1B75BB;background-color: #EED168; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; -webkit-border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; border-radius: 0px 0px 10px 10px;}
-#souphpsp_projects .info_list { list-style: none; }
+#souphpsp_projects .info_list { list-style: none; margin:0px; }
 #souphpsp_projects .info_list li { padding: 2px; }
 #souphpsp_projects .info_list a { text-decoration:underline; color: #000; }
 
@@ -99,6 +99,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .about_user .user_info {  }
 .about_user .user_info img { float:left; margin: 0 10px 0 0; }
 .about_user .user_stats {}
+
 .user_contrib_list { }
 .user_contrib_list img{ float:left; margin: 0 10px 0 0; }
 .user_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }

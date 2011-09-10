@@ -1,0 +1,51 @@
+{% extends 'form_div_layout.html.twig' %}
+ 
+{% block field_errors %}
+{% spaceless %}
+    <span class="help-inline">
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                {{ error.messageTemplate|trans(error.messageParameters, 'validators') }}<br />
+            {% endfor %}
+        {% endif %}
+    </span>
+{% endspaceless %}
+{% endblock field_errors %}
+ 
+{% block field_row %}
+
+    {% if class is not defined %}
+        {% set class = '' %}
+    {% endif %}
+
+    {% if errors|length > 0 %}
+        {% set class = 'error' %}
+    {% endif %}
+
+    <div class="clearfix {% if errors|length > 0 %}error{% endif %}">
+        {{ form_label(form, label) }}
+        <div class="input">
+            {% if addon is defined %}
+                {{ block('prepended_input') }}
+            {% else %}
+                {{ block('twitter_input') }}
+            {% endif %}
+            
+            {% if help is defined %}
+                <span class="help-inline">{{ help }}</span>
+            {% endif %}
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endblock field_row %}
+
+{% block prepended_input %}
+    <div class="input-prepend">
+        <span class="add-on">{{ addon }}</span>
+        {{ block('twitter_input') }}
+    </div>
+{% endblock prepended_input %}
+
+{% block twitter_input %}
+    {{ form_widget(form, { 'attr': { 'class': class } }) }}
+{% endblock twitter_input %}
