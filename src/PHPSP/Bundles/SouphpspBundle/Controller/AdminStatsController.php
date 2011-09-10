@@ -30,7 +30,7 @@ class AdminStatsController extends Controller
         $chartOptions = array(
             '3d'     => true,
             'legend' => true,
-            'size'   => '450x250',
+            'size'   => '480x250',
             'color'  => '1B75BB'
         );
         
