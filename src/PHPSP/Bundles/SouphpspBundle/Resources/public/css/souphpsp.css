@@ -41,6 +41,38 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 #souphpsp_sponsors { vertical-align: middle; }
 #souphpsp_sponsors img { margin-right: 30px; max-width: 219px; max-height: 70px;}
 
+/* Contribution  */
+
+.contribution_list { list-style-type: none; margin: 0px;  }
+.contribution { color:#000; margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; 
+}
+.contribution .cmds { font-size: 90%; }
+.contribution .operational { float:right; text-align: right; width:50%; }
+.contribution .main_info {  }
+.contribution .main_info img { float:left; margin: 0 10px 0 0;  }
+.contribution .user_info { font-size: 80%; }
+.contribution .title { font-size: 110%; font-weight:bold; margin:0;  }
+.contribution .title a { font-size:80%; font-weight: normal; }
+.contribution .notes { font-size:80%; color:#A4A4A4; padding: 3px; }
+.contribution .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
+.contribution .desc { padding: 5px 0; }
+.contribution .status_1 { color:#5F9941;  }
+.contribution .status_2 { color:#999126; }
+
+.user_contrib_list { list-style-type: none; margin:0px; }
+.user_contrib_list img{ float:left; margin: 0 10px 0 0; }
+.user_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }
+.user_contrib_list li .status_1 { color:#5F9941;  }
+.user_contrib_list li .status_2 { color:#999126; }
+.user_contrib_list li .user_info { font-size: 80%; padding-bottom: 5px; }
+.user_contrib_list li .title { font-size:110%; font-weight: bold; margin-top: -10px; }
+.user_contrib_list li .title a { font-size:80%; font-weight: normal; }
+.user_contrib_list li .desc { padding: 5px; }
+.user_contrib_list li .reference {  }
+.user_contrib_list li .notes { font-size:80%; color:#A4A4A4; padding: 3px; float:right; clear:right; text-align:right; }
+.user_contrib_list li .notes span { font-size: 180%; color: #929292; padding: 0 5px; font-weight: bold; }
+.user_contrib_list li .cmds { float:right; font-size: 90%; font-weight: bold; }
+
 /* Contribution list */
 .contrib-list {list-style: none; margin: 0;}
 .contrib-list LI { margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }
@@ -82,7 +114,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .admin_contrib_show_0 { font-weight: bold; font-size: 115%; color:#99432E; }
 .admin_contrib_show_1 { font-weight: bold; font-size: 115%; color:#5F9941; }
 .admin_contrib_show_2 { font-weight: bold; font-size: 115%; color:#999126; }
-.admin_contrib_links { float:right; margin: -10px 0 0 0; }
+.admin_contrib_links { text-align: right;}
 .admin_contrib_list { }
 .admin_contrib_list img{ float:left; margin: 0 10px 0 0; }
 .admin_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }

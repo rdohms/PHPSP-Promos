@@ -1,0 +1,19 @@
+<div class="contribution clearfix">
+	
+	<div class="operational">
+		{% if admin == true and status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') %}
+		<p class="cmds"><a href="{{ path('souphpsp_admin_contribution_edit', { 'id': contrib.id }) }}">Aprovar/Rejeitar</a></p>
+		{% endif %}
+		<p class="notes"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
+	</div>
+	
+	<div class="main_info">
+		<img src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
+
+		<p class="title status_{{contrib.status}}">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
+		<p class="user_info"><a href="{{ path('user_page', { 'username': getTwitterInfo(contrib.userId).screen_name }) }}">{{ getTwitterInfo(contrib.userId).name }}</a>, {{ contrib.dateAdded|date("d/m/Y H:i") }}</p>
+
+	</div>
+
+	<p class="desc">{{ contrib.description }}</p>
+</div>
