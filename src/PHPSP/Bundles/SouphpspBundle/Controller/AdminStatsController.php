@@ -16,6 +16,7 @@ use PHPSP\Bundles\SouphpspBundle\Form\PrizeType;
  */
 class AdminStatsController extends Controller
 {
+    
     /**
      * Lists all Prize entities.
      *
@@ -24,7 +25,26 @@ class AdminStatsController extends Controller
      */
     public function indexAction()
     {
+        $chartBuilder = $this->get('souphpsp.chart.builder');
         
+        $chartOptions = array(
+            '3d'     => true,
+            'legend' => true,
+            'size'   => '450x250',
+            'color'  => '1B75BB'
+        );
+        
+        $charts = array();
+        $charts['top_projects'] = $chartBuilder->getActiveProjectGraph($chartOptions);
+        $charts['top_types'] = $chartBuilder->getContributionTypeGraph($chartOptions);
+        
+        $chartOptionsForStatus = $chartOptions;
+        unset($chartOptionsForStatus['color']);
+        $charts['contribution_status'] = $chartBuilder->getContributionStatusGraph($chartOptionsForStatus);
+        
+        return array(
+            'charts' => $charts
+        );
     }
-    
+ 
 }

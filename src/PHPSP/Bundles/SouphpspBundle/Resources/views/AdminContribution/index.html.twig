@@ -20,12 +20,12 @@
 </p>
 <ul class="admin_contrib_list">
 	{% for contrib in contribs %}
-	<li>
+	<li class="group">
 		<img src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
 		{% if status == constant('PHPSP\\Bundles\\SouphpspBundle\\Entity\\Contribution::PENDING') %}
 		<p class="cmds"><a href="{{ path('souphpsp_admin_contribution_edit', { 'id': contrib.id }) }}">Aprovar/Rejeitar</a></p>
 		{% endif %}
-		<p class="notes"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
+		<p class="notes s6"><span>&#8220;</span>{{ contrib.notes }}<span>&#8221;</span></p>
 		<p class="user_info"><a href="http://www.twitter.com/{{ getTwitterInfo(contrib.userId).screen_name }}">{{ getTwitterInfo(contrib.userId).screen_name }}</a>, {{ contrib.dateAdded|date("d/mY H:i") }}</p>
 		<p class="title">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
 		<p class="desc">{{ contrib.description }}</p>

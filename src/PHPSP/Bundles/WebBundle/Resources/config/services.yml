@@ -9,7 +9,7 @@ services:
                     servers: [{host: %cache.host%, port: %cache.port%}]
                                         
     phpsp.chart:
-        class: PHPSP\Bundles\WebBundle\Services
+        class: PHPSP\Bundles\WebBundle\Services\Chart\Service
                     
     phpsp.twitter.api:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Api
@@ -30,3 +30,7 @@ services:
         tags:
             - { name: twig.extension }
             
+    phpsp.localedate.twig.extension:
+        class: PHPSP\Twig\Extension\LocaleDate
+        tags:
+            - { name: twig.extension }

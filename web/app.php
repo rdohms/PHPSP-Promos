@@ -10,6 +10,8 @@ defined('APP_ENV')
 
 use Symfony\Component\HttpFoundation\Request;
 
+setlocale(LC_ALL, 'pt_BR');
+
 $kernel = new AppKernel(APP_ENV, (APP_ENV == 'dev')? true:false);
 $kernel->loadClassCache();
 //$kernel = new AppCache($kernel);

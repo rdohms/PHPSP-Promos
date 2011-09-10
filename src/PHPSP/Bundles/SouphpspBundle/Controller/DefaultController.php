@@ -30,11 +30,12 @@ class DefaultController extends Controller
             'sponsors' => $sponsors,
             'prizes'   => $prizes,
             'stats'    => $stats,
+            'charts'   => $this->getCharts()
         );
     }
     
     /**
-     * @Route("souphpsp/u/{username}")
+     * @Route("souphpsp/u/{username}", name="user_page")
      * @Template()
      */
     public function userAction($username)
@@ -78,5 +79,21 @@ class DefaultController extends Controller
         return array( 'ranking' => $ranking, 'userData' => $userInfo );
     }
     
-    
+    protected function getCharts()
+    {
+        $chartBuilder = $this->get('souphpsp.chart.builder');
+        
+        $chartOptions = array(
+            '3d'     => true,
+            'legend' => true,
+            'size'   => '280x150',
+            'color'  => '1B75BB'
+        );
+        
+        $charts = array();
+        $charts['top_projects'] = $chartBuilder->getActiveProjectGraph($chartOptions);
+        $charts['top_types'] = $chartBuilder->getContributionTypeGraph($chartOptions);
+        
+        return $charts;
+    }
 }

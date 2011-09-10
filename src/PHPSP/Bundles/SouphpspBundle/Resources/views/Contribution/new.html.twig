@@ -1,25 +1,35 @@
 {% extends 'SouphpspBundle::souphpsp.html.twig' %}
 
 {% block souphpsp_content %}
+
 <h1>Adicionar contribuição</h1>
-
-<form action="{{ path('contribution_create') }}" method="post" {{ form_enctype(form) }}>
-	{{ form_errors(form) }}
-
-	{{ form_row(form.userId) }}
-	{{ form_row(form.project, { 'class': 'xlarge'}) }}
-	{{ form_row(form.projectOther, {'help': 'Use este campo para informar projetos não listados acima.', 'class': 'xlarge'}) }}
-	{{ form_row(form.type, { 'class': 'xlarge'}) }}
-	{{ form_row(form.typeOther, {'help': 'Use este campo para informar tipos de contribuição não listados acima.', 'class': 'xlarge'}) }}
-	{{ form_row(form.description, { 'class': 'xlarge'}) }}
-	{{ form_row(form.reference, { 'class': 'xlarge'}) }}
-	{{ form_row(form.notes, { 'class': 'xlarge'}) }}
-	{{ form_row(form._token) }}
-	
-	<div class="actions">
-		<button type="submit" class="btn primary">Adicionar</button>
-		<button type="reset" class="btn">Cancel</button>
+<div class="row">
+	<div class="alert-message warning span16 contrib_new_warning">
+		<h2>Atenção!</h2>
+		<p>Só são válidas contribuições feitas ente: <strong>{{souphpsp_date_start|strftime("%d/%B/%Y")}}</strong> até <strong>{{souphpsp_date_end|strftime("%d/%B/%Y")}}</strong> e em um projeto Open Source <strong>relacionado a PHP</strong>.</p>
 	</div>
-</form>
+	<div class="span16">
+		<form action="{{ path('contribution_create') }}" method="post" {{ form_enctype(form) }}>
+			{{ form_errors(form) }}
+
+			{{ form_row(form.userId) }}
+			{{ form_row(form.project, { 'class': 'xlarge'}) }}
+			{{ form_row(form.projectOther, {'help': 'Use este campo para informar projetos não listados acima.', 'class': 'xlarge'}) }}
+			{{ form_row(form.type, { 'class': 'xlarge'}) }}
+			{{ form_row(form.typeOther, {'help': 'Use este campo para informar tipos de contribuição não listados acima.', 'class': 'xlarge'}) }}
+			{{ form_row(form.description, { 'class': 'xlarge'}) }}
+			{{ form_row(form.reference, { 'class': 'xlarge'}) }}
+			{{ form_row(form.notes, { 'class': 'xlarge'}) }}
+			{{ form_row(form._token) }}
+
+			<div class="actions">
+				<button type="submit" class="btn primary">Adicionar</button>
+				<button type="reset" class="btn">Cancel</button>
+			</div>
+		</form>
+	</div>
+
+</div>
+
 {% endblock %}
 

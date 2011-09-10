@@ -68,5 +68,6 @@
 [pChart-php5]
     git=http://github.com/aweiland/pChart-php5.git
 
-[twitter-bootstrap]
-    git=http://github.com/twitter/bootstrap.git
+[GoogleChartGenerator]
+    git=git@github.com:rdohms/GoogleChartGenerator.git
+

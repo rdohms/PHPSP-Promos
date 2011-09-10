@@ -8,10 +8,11 @@
 			<div class="span10">
 				<h1 id=""sou_phpsp_e_contribuo!"">"Sou PHPSP e contribuo!"</h1>
 				<p>O PHPSP quer que você seja um contribuidor de projetos Open Source, queremos que você ajude projetos e ao mesmo tempo expanda sua rede de contatos e faça o seu nome crescer no mercado. Para fazer isso o PHPSP vai sortear <strong>diversos prêmios</strong> para que você dê o primeiro passo!</p>
-
+				<p>Para isso, conheça os <a href="/souphpsp/about/projects">projetos parceiros</a> desta promoção e começe a contribuir! Todas contribuições são válidas.</p>
 				<p><a href="/souphpsp/about">Saiba mais e veja o regulamento aqui</a></p>
 			</div>
 		</div>
+		
 		<div class="row">
 			<div class="span5">
 				<h2>Estatísticas</h2>
@@ -31,18 +32,29 @@
 				<h2>Ranking</h2>
 				<ol class="ranking_list">
 					{% for contrib in ranking %}
-					<li><a href="http://twitter.com/{{userData[contrib.0.userId].screen_name}}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
+					<li><a href="{{ path('user_page', { 'username': userData[contrib.0.userId].screen_name }) }}">{{userData[contrib.0.userId].name}}</a> - {{contrib.contribs}} contribuições</li>
 					{% else %}
 					<p>nenhuma contribuição computada</p>
 					{% endfor %}
 				</ol>
 			</div>
 		</div>
+		
+		<div class="row">
+			{% for chart in charts %}
+				<div class="span5">
+					{{ chart.render|raw }}
+				</div>
+			{% endfor %}
+		</div>
+
+		
 		<div class="row">
 			<div class="span10 sponsor_list">
 				<h1 id="patrocinadores">Patrocinadores</h1>
 				{% for sponsor in sponsors %}
 				<a href="{{sponsor.site}}" title="{{sponsor.name}}"><img src="{{ asset(sponsor.logo) }}" alt="{{sponsor.name}}"></a>
+
 				{% endfor %}
 				<p class="besponsor centered"><a href="{{path('beasponsor')}}">Quero ser um patrocinador!</a></p>
 			</div>

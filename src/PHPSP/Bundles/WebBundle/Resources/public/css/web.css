@@ -3,6 +3,7 @@
 /*Standard classes*/
 .centered { margin: 0 auto; float: none; }
 .justified { text-align:justify; }
+
 p.regular_p, .regular_p p { margin: 1.12em 0; line-height: 1.5em;  }
 
 /* Tag redefenition */
