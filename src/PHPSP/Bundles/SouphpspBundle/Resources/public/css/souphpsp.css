@@ -52,9 +52,9 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .contrib-list .denial { color:#4E0108; background-color:#EE8D81; padding: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-top: 10px; clear:both; }
 .contrib-list .denial a.mentor { clear:both; float:right; }
 
-#contrib-approved H2{ color:#5F9941; }
-#contrib-denied   H2{ color:#99432E; }
-#contrib-pending  H2{ color:#999126;}
+#contrib-approved h2, h2#contrib-approved{ color:#5F9941; }
+#contrib-denied   h2, h2#contrib-denied{ color:#99432E; }
+#contrib-pending  h2, h2#contrib-pending{ color:#999126;}
 
 /* Contrib New  */
 .contrib_new_warning h2 { display: inline; margin:0px; font-size: 150%;  }
@@ -99,19 +99,23 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .admin_contrib_info img { float:right; }
 
 /* User page */
-.about_user { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; margin: 10px 0; background-color:#EED168; line-height: 1.3em; }
-.about_user div { padding: 10px; }
+.about_user { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; margin: 10px 0; background-color:#EED168; padding: 10px; }
+.about_user .row { margin-bottom:0px; }
 .about_user .user_info {  }
+.about_user .user_info .location { font-size: 90%; margin-top:-15px; }
+.about_user .user_info .desc {  }
 .about_user .user_info img { float:left; margin: 0 10px 0 0; }
-.about_user .user_stats {}
+.about_user .user_stats { text-align: right; }
+.about_user .user_stats ul { list-style-type: none; }
+.about_user .user_stats ul li { color: #000; }
 
-.user_contrib_list { }
+.user_contrib_list { list-style-type: none; margin:0px; }
 .user_contrib_list img{ float:left; margin: 0 10px 0 0; }
 .user_contrib_list li { margin: 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; min-height: 48px; }
 .user_contrib_list li .status_1 { color:#5F9941;  }
 .user_contrib_list li .status_2 { color:#999126; }
 .user_contrib_list li .user_info { font-size: 80%; padding-bottom: 5px; }
-.user_contrib_list li .title { font-size:110%; font-weight: bold; }
+.user_contrib_list li .title { font-size:110%; font-weight: bold; margin-top: -10px; }
 .user_contrib_list li .title a { font-size:80%; font-weight: normal; }
 .user_contrib_list li .desc { padding: 5px; }
 .user_contrib_list li .reference {  }
