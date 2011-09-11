@@ -3,39 +3,43 @@
 {% block souphpsp_content %}
 <h1>Contribuição</h1>
 
-<div class="show-contrib">
-	<div class="s7 gutter">
-		<h2>{{entity.type}}: {{entity.project.name}} (<a href="{{entity.reference}}">referência</a>)</h2>
-		<p class="desc"><span class="date">{{ entity.dateAdded|date('d/m/Y H:i') }}</span> - {{entity.description}}</p>
-		<p>{{entity.notes}}</p>
+<div class="row show_contrib">
+	<div class="span-two-thirds">
+		<div class="contrib_info">
+			<h2>{{entity.type}}: {{entity.project.name}} (<a href="{{entity.reference}}">referência</a>)</h2>
+			<p class="desc"><span class="date">{{ entity.dateAdded|date('d/m/Y H:i') }}</span> - {{entity.description}}</p>
+			<p>{{entity.notes}}</p>
+		</div>
 	</div>
 	
-	<div class="s4 status_box box_default">
-		<p class="status_{{entity.status}}">
+	<div class="span-one-third">
+		<div class="status_box box_default">
+			<p class="status_{{entity.status}}">
+				{% if entity.status == 0 %}
+				Rejeitada
+				{% elseif entity.status == 1 %}
+				Aprovada
+				{% else %}
+				Em Avaliação
+				{% endif %}
+			</p>
 			{% if entity.status == 0 %}
-			Rejeitada
-			{% elseif entity.status == 1 %}
-			Aprovada
-			{% else %}
-			Em Avaliação
+			<p class="mentor">por <strong>{{getTwitterInfo(entity.mentorId).screen_name}}</strong> em {{ entity.dateRevised|date('d/m/Y H:i') }}</p>
+				{% if entity.status == 0 %}
+				<p class="reason">&#8220;{{entity.reasonDenied}}&#8221;</p>
+				{% endif %}
 			{% endif %}
-		</p>
-		{% if entity.status != 2 %}
-		<p class="mentor">por <strong>{{getTwitterInfo(entity.mentorId).screen_name}}</strong> em {{ entity.dateRevised|date('d/m/Y H:i') }}</p>
-			{% if entity.status == 0 %}
-			<p class="reason">&#8220;{{entity.reasonDenied}}&#8221;</p>
-			{% endif %}
-		{% endif %}
+		</div>
 	</div>
-
-
 </div>
 
 {% if entity.status == 2 %}
 <form class="delete" action="{{ path('contribution_delete', { 'id': entity.id }) }}" method="post">
-    {{ form_widget(delete_form) }}
-    <button type="submit">Remover</button>
-</form>
+	{{ form_widget(delete_form) }}
+	<div class="actions">
+	    <button type="submit" class="btn danger">Remover</button>
+	</div>
+</form>	
 {% endif %}
 {% endblock %}
 

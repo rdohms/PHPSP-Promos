@@ -93,18 +93,15 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .contrib_new_warning p { display:inline; font-size: 90%;}
 
 /* Contrib Show  */
-.show-contrib {}
-.show-contrib .desc { margin: 15px 0; }
-.show-contrib .date { color:#BABABA; font-style: italic;  }
-.show-contrib .status_box { padding: 10px; line-height: 1.5em; text-align: right; }
-.show-contrib p.status_0 { font-weight: bold; font-size: 115%; color:#99432E; }
-.show-contrib p.status_1 { font-weight: bold; font-size: 115%; color:#5F9941; }
-.show-contrib p.status_2 { font-weight: bold; font-size: 115%; color:#999126; }
-.show-contrib .mentor { font-style: italic; color:#BABABA; }
-.show-contrib .reason { font-style: italic; font-size:105%;  }
-
-.delete button{ margin: 20px 0; }
-
+.show_contrib {}
+.show_contrib .desc { margin: 15px 0; }
+.show_contrib .date { color:#BABABA; font-style: italic;  }
+.show_contrib .status_box { padding: 10px; line-height: 1.5em; text-align: right; }
+.show_contrib p.status_0 { font-weight: bold; font-size: 115%; color:#99432E; }
+.show_contrib p.status_1 { font-weight: bold; font-size: 115%; color:#5F9941; }
+.show_contrib p.status_2 { font-weight: bold; font-size: 115%; color:#999126; }
+.show_contrib .mentor { font-style: italic; color:#BABABA; }
+.show_contrib .reason { font-style: italic; font-size:105%;  }
 
 /* Boxes */
 .box_default { -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; }
