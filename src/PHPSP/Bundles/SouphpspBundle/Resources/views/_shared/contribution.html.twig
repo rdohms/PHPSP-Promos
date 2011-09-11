@@ -8,10 +8,18 @@
 	</div>
 	
 	<div class="main_info">
-		<img src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
-
-		<p class="title status_{{contrib.status}}">{{ contrib.type }}: {{ contrib.project.name }} - <a href="{{ contrib.reference }}">referência</a></p>
-		<p class="user_info"><a href="{{ path('user_page', { 'username': getTwitterInfo(contrib.userId).screen_name }) }}">{{ getTwitterInfo(contrib.userId).name }}</a>, {{ contrib.dateAdded|date("d/m/Y H:i") }}</p>
+		{% if show_avatar is defined and show_avatar %}
+		<img class="avatar" src="{{ getTwitterInfo(contrib.userId).profile_image_url }}" alt="{{ getTwitterInfo(contrib.userId).screen_name }}">
+		{% endif %}
+		<p class="title status_{{contrib.status}}">
+			{{ contrib.type }}: {{ contrib.project.name }} 
+			<a href="{{ contrib.reference }}">
+				<img src="{{ asset('bundles/souphpsp/images/icons/reference.png') }}" alt="referência" title="Referência">
+			</a>
+		</p>
+		<p class="user_info">
+			<a href="{{ path('user_page', { 'username': getTwitterInfo(contrib.userId).screen_name }) }}">{{ getTwitterInfo(contrib.userId).name }}</a>, {{ contrib.dateAdded|date("d/m/Y H:i") }}
+		</p>
 
 	</div>
 

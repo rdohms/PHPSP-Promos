@@ -27,6 +27,19 @@ class ContributionRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
     
+    public function getAllUserContributions($uid)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.userId = ?0');
+        
+        $qb->setParameter(0, $uid);
+        
+        $qb->orderBy('c.dateRevised', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
     public function findMyContributions($uid)
     {
         $qb = $this->createQueryBuilder('c');
@@ -106,7 +119,7 @@ class ContributionRepository extends EntityRepository
         return $stats;
     }
     
-    public function getCountByProject($id = null)
+    public function getCountByProject($criteria = array())
     {
         $qb = $this->createQueryBuilder('c');
         
@@ -119,18 +132,26 @@ class ContributionRepository extends EntityRepository
         $qb->groupBy('c.project');
         $qb->orderBy('pCount', 'DESC');
         
-        $qb->andWhere('c.status != ?0');
-        $qb->setParameter(0, Contribution::DENIED);
+        if ( ! isset($criteria['status'])) {
+            $criteria[] = array(
+                'field' => 'status',
+                'operator' => '!=',
+                'value' => Contribution::DENIED
+            );
+        }
         
-        if ($id !== null) {
-            $qb->andWhere('c.project = ?1');
-            $qb->setParameter(1, $id);
+        //Build AndWhere
+        $key = 0;
+        foreach($criteria as $andWhere) {
+            $qb->andWhere('c.' . $andWhere['field'] . $andWhere['operator'] . '?' . $key);
+            $qb->setParameter($key, $andWhere['value']);
+            $key++;
         }
         
         return $qb->getQuery()->getResult();
     }
     
-    public function getCountByType($type = null)
+    public function getCountByType($criteria = array())
     {
         $qb = $this->createQueryBuilder('c');
         
@@ -140,18 +161,26 @@ class ContributionRepository extends EntityRepository
         $qb->groupBy('c.type');
         $qb->orderBy('cCount', 'DESC');
                 
-        $qb->andWhere('c.status != ?0');
-        $qb->setParameter(0, Contribution::DENIED);
+        if ( ! isset($criteria['status'])) {
+            $criteria[] = array(
+                'field' => 'status',
+                'operator' => '!=',
+                'value' => Contribution::DENIED
+            );
+        }
         
-        if ($type !== null) {
-            $qb->andWhere('c.type = ?1');
-            $qb->setParameter(1, $type);
+        //Build AndWhere
+        $key = 0;
+        foreach($criteria as $andWhere) {
+            $qb->andWhere('c.' . $andWhere['field'] . $andWhere['operator'] . '?' . $key);
+            $qb->setParameter($key, $andWhere['value']);
+            $key++;
         }
         
         return $qb->getQuery()->getResult();
     }
     
-    public function getCountByStatus($status = null)
+    public function getCountByStatus($criteria = array())
     {
         $qb = $this->createQueryBuilder('c');
         
@@ -160,10 +189,13 @@ class ContributionRepository extends EntityRepository
         
         $qb->groupBy('c.status');
         $qb->orderBy('cCount', 'DESC');
-                
-        if ($status !== null) {
-            $qb->andWhere('c.status = ?1');
-            $qb->setParameter(1, $status);
+        
+        //Build AndWhere
+        $key = 0;
+        foreach($criteria as $andWhere) {
+            $qb->andWhere('c.' . $andWhere['field'] . $andWhere['operator'] . '?' . $key);
+            $qb->setParameter($key, $andWhere['value']);
+            $key++;
         }
         
         return $qb->getQuery()->getResult(); 

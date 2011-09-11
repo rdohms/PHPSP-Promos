@@ -40,11 +40,11 @@ class Builder
      * @param array $options
      * @return type 
      */
-    public function getActiveProjectGraph($options)
+    public function getActiveProjectGraph($options, $criteria = array())
     {
         $options = $this->getMergedOptions($options);
         
-        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByProject();
+        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByProject($criteria);
         
         $processedData = $this->parseProjectData($data);
         
@@ -57,11 +57,11 @@ class Builder
      * @param array $options
      * @return type 
      */
-    public function getContributionTypeGraph($options)
+    public function getContributionTypeGraph($options, $criteria = array())
     {
         $options = $this->getMergedOptions($options);
         
-        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByType();
+        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByType($criteria);
         
         $processedData = $this->parseContributionTypeData($data);
         
@@ -74,11 +74,11 @@ class Builder
      * @param array $options
      * @return type 
      */
-    public function getContributionStatusGraph($options)
+    public function getContributionStatusGraph($options, $criteria = array())
     {
         $options = $this->getMergedOptions($options);
         
-        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByStatus();
+        $data = $this->em->getRepository('SouphpspBundle:Contribution')->getCountByStatus($criteria);
         
         $processedData = $this->parseContributionStatusData($data);
         

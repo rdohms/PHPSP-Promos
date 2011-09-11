@@ -26,7 +26,7 @@
 <ul class="contribution_list">
 	{% for contrib in contribs %}
 	<li class="">
-		{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': true} %}
+		{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': true, 'show_avatar': true} %}
 	</li>
 	{% endfor %}
 </ul>
