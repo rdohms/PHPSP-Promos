@@ -1,3 +1,7 @@
+/* Generic */
+
+.actions form { display:inline;  }
+
 /* NAV */
 nav {}
 nav ul { overflow: hidden; display: inline-block; margin: -8px 0 10px 0; }
@@ -126,7 +130,12 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .about_user .user_stats ul li { color: #000; }
 
 .user_contrib_list { list-style-type: none; margin:0px; }
-
 .user_charts { list-style-type: none; margin:0px;  }
 
-.actions form { display:inline;  }
+/* Project */
+.project_info { padding:5px; }
+.project_info ul { list-style-type: none; margin:0px;  }
+.project_info ul li { color:#000; }
+.project_contrib_list { list-style-type: none; margin:0px; }
+.project_charts { list-style-type: none; margin:0px;  }
+

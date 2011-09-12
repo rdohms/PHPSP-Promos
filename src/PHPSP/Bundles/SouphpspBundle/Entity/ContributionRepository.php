@@ -27,6 +27,34 @@ class ContributionRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
     
+    public function getProjectContributions($project)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.project = ?0');
+        $qb->andWhere('c.status != ?1');
+        
+        $qb->setParameter(0, $project);
+        $qb->setParameter(1, 0);
+        
+        $qb->orderBy('c.dateRevised', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
+    public function getAllProjectContributions($project)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.project = ?0');
+        
+        $qb->setParameter(0, $project);
+        
+        $qb->orderBy('c.dateRevised', 'DESC');
+        $qb->orderBy('c.dateAdded', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
     public function getAllUserContributions($uid)
     {
         $qb = $this->createQueryBuilder('c');

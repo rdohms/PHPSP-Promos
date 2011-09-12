@@ -1,0 +1,73 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+
+<div class="row">
+	<div class="span-two-thirds">
+		<h1 id="">{{ project.name }}</h1>
+
+		<p>{{project.about}}</p>
+	</div>
+	<div class="span-one-third">
+		<div class="project_info box_default">
+			<ul class="info_list">
+				<li><strong>Site:</strong> <a href="{{project.site}}">{{project.site}}</a></li>
+				<li><strong>Repository:</strong> <a href="{{project.repository}}">{{project.repository}}</a></li>
+				<li><strong>How to contribute:</strong> <a href="{{project.howtocontribute}}">{{project.howtocontribute}}</a></li>
+				<li><strong>Contato:</strong> {{project.contactName}} (<a href="http://twitter.com/{{project.contactTwitter}}">{{project.contactTwitter}}</a>)</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span-two-thirds">
+		<h1>Contribuições</h1>
+		
+		{% if  contribs.2 %}
+			<h2 id="contrib-pending">Em Aprovação</h2>
+			<ul class="project_contrib_list">
+				{% for contrib in contribs.2 %}
+				<li>
+					{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': false, 'show_avatar': true} %}
+				</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		
+		{% if  contribs.1 %}
+			<h2 id="contrib-approved">Aprovadas</h2>
+			<ul class="project_contrib_list">
+				{% for contrib in contribs.1 %}
+				<li>
+					{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': false, 'show_avatar': true} %}
+				</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		
+		{% if  contribs.0 %}
+			<h2 id="contrib-denied">Rejeitadas</h2>
+			<ul class="project_contrib_list">
+				{% for contrib in contribs.0 %}
+				<li>
+					{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': false, 'show_avatar': true} %}
+				</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+	
+	<div class="span-one-third">
+		<h2>Estatísticas</h2>
+		
+		<ul class="project_charts">
+			{% for chart in charts %}
+			<li>
+				{{ chart.render|raw }}
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock %}
