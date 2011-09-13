@@ -64,6 +64,9 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .contribution .status_1 { color:#5F9941; }
 .contribution .status_2 { color:#999126; }
 
+.contribution .status_info { text-align: right; margin-top:5px; }
+.contribution .status_info .mentor { font-size:90%; color: #A4A4A4;   }
+
 /* Contribution list */
 .contrib-list {list-style: none; margin: 0;}
 .contrib-list LI { margin: 5px 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; padding: 10px; }

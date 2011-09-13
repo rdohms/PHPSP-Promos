@@ -20,8 +20,19 @@
 		<p class="user_info">
 			<a href="{{ path('user_page', { 'username': getTwitterInfo(contrib.userId).screen_name }) }}">{{ getTwitterInfo(contrib.userId).name }}</a>, {{ contrib.dateAdded|date("d/m/Y H:i") }}
 		</p>
-
+		
 	</div>
 
 	<p class="desc">{{ contrib.description }}</p>
+	{% if contrib.status != 2 %}
+		<div class="status_info">
+			{% if contrib.status == 0 %}
+				<p class="reason">&#8220;{{contrib.reasonDenied}}&#8221;</p>
+			{% endif %}
+			<p class="mentor">
+				{% if contrib.status == 0 %} rejeitado {% elseif contrib.status == 1 %} aprovado {% endif %}
+				por <strong>{{getTwitterInfo(contrib.mentorId).screen_name}}</strong> em {{ contrib.dateRevised|date('d/m/Y H:i') }}
+			</p>
+		</div>
+	{% endif %}
 </div>

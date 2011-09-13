@@ -14,7 +14,7 @@
 					{% for contrib in entities.1 %}
 					<li>
 						<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-						<p class="title">{{ contrib.type }} - {{ contrib.project.name }} <a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
+						<p class="title">{{ contrib.type }} - {{ contrib.project.name }} <a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('/bundles/souphpsp/images/icons/magnifier.png')}}" alt=""></a></p>
 						<p class="description">{{ contrib.description }}</p>
 
 					</li>
@@ -31,7 +31,7 @@
 					{% for contrib in entities.0 %}
 					<li >
 						<p class="date">{{ contrib.dateRevised|date("d/F H:i") }}</p>
-						<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
+						<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('/bundles/souphpsp/images/icons/magnifier.png')}}" alt=""></a></p>
 						<p class="description">{{ contrib.description }}</p>
 						<p class="denial clearfix">
 							&#8220;{{ contrib.reasonDenied }}&#8221;<br>
@@ -52,7 +52,7 @@
 				{% for contrib in entities.2 %}
 				<li>
 					<p class="date">{{ contrib.dateAdded|date("d/F H:i") }}</p>
-					<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('icons/magnifier.png')}}" alt=""></a></p>
+					<p class="title">{{ contrib.type }} - {{ contrib.project.name }}<a href="{{ path('contribution_show', { 'id': contrib.id }) }}"><img src="{{asset('/bundles/souphpsp/images/icons/magnifier.png')}}" alt=""></a></p>
 					<p class="description">{{ contrib.description }}</p>
 				</li>
 				{% else %}
