@@ -64,7 +64,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .contribution .status_1 { color:#5F9941; }
 .contribution .status_2 { color:#999126; }
 
-.contribution .status_info { text-align: right; margin-top:5px; }
+.contribution .status_info { text-align: right; margin-top:5px; clear:both; }
 .contribution .status_info .mentor { font-size:90%; color: #A4A4A4;   }
 
 /* Contribution list */
