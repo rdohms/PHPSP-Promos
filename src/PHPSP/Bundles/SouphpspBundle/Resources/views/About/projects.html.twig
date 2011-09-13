@@ -11,7 +11,7 @@
 <ul id="souphpsp_projects">
 	{% for project in projects %}
 	<li>
-		<p class="title">{{project.name}}</p>
+		<p class="title">{{project.name}} <a href="{{ path('project_page', { 'id': project.id}) }}"><img src="{{ asset('/icons/magnifier.png')}}" alt=""></a></p>
 		<blockquote>
 			<ul class="info_list">
 				<li><strong>Site:</strong> <a href="{{project.site}}">{{project.site}}</a></li>
