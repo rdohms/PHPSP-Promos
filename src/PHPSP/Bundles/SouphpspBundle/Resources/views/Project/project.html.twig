@@ -68,6 +68,14 @@
 			</li>
 			{% endfor %}
 		</ul>
+		
+		<h2>Contribuidores</h2>
+		
+		<div class="project_users">
+			{% for user in contributors %}
+			<a href="{{ path('user_page', { 'username': getTwitterInfo(user.userId).screen_name }) }}"><img class="avatar" src="{{ getTwitterInfo(user.userId).profile_image_url }}" alt="{{ getTwitterInfo(user.userId).screen_name }}"></a>
+			{% endfor %}
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -228,4 +228,17 @@ class ContributionRepository extends EntityRepository
         
         return $qb->getQuery()->getResult(); 
     }
+    
+    public function getProjectContributers($project)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('c.userId');
+        $qb->where('c.project = ?0');
+        
+        $qb->setParameter(0, $project);
+        
+        $qb->groupBy('c.userId');
+        
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -27,10 +27,13 @@ class ProjectController extends Controller
             $this->redirect('/souphpsp');
         }
 
+        $contributors = $this->getEM()->getRepository('SouphpspBundle:Contribution')->getProjectContributers($project);
+
         return array(
             'contribs' => $this->getContribsByStatus($project),
             'project'  => $project,
-            'charts'   => $this->getProjectCharts($project)
+            'charts'   => $this->getProjectCharts($project),
+            'contributors' => $contributors
         );
         
     }
