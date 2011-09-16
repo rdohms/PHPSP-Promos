@@ -19,6 +19,7 @@ class ProjectType extends AbstractType
             ->add('contactTwitter')
             ->add('about')
             ->add('whereToHelp')
+            ->add('slug')
         ;
     }
 

@@ -98,6 +98,13 @@ class Project
     private $status;
 
     /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", nullable=true, length=100)
+     */
+    private $slug;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -287,7 +294,16 @@ class Project
         $this->contactTwitter = $contactTwitter;
     }
 
-            
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
     public function __toString()
     {
         return $this->getName();

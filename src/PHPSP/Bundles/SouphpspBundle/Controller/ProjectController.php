@@ -15,12 +15,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ProjectController extends Controller
 {
     /**
-     * @Route("/p/{id}", name="project_page")
+     * @Route("/p/{slug}", name="project_page")
      * @Template()
      */
-    public function projectAction($id)
+    public function projectAction($slug)
     {
-        $project = $this->getEM()->find('SouphpspBundle:Project', $id);
+        $projectRepo = $this->getEM()->getRepository('SouphpspBundle:Project');
+        $project = $projectRepo->findOneBy(array('slug' => $slug));
         
         //Skip if we can't find
         if ( $project === null) {
