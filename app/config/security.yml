@@ -28,6 +28,7 @@ security:
         - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/souphpsp$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/souphpsp/u/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/souphpsp/p/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/souphpsp/about/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/souphpsp/admin/, roles: ROLE_ADMIN  }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
