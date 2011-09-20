@@ -23,6 +23,11 @@ services:
             twitter: @fos_twitter.service
             container: @service_container
                 
+    phpsp.twitter.account:
+        class: PHPSP\Bundles\WebBundle\Services\Twitter\Account
+        arguments:
+            config: 
+            
     phpsp.twitter.twig.extension:
         class: PHPSP\Bundles\WebBundle\Services\Twitter\Twig\Extension
         arguments:

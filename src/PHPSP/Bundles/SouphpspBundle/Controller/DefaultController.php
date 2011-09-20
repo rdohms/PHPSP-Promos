@@ -8,6 +8,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
+    
+    /**
+     * @Route("/souphpsp/x")
+     */
+    public function xAction()
+    {
+        $oauth = new \TwitterOAuth('qPLsh4YhO2Ui8KmM6vRtw', 'CbtjJPSD1yxxJfbbr4TPKX7K0UCExnffk5Qg', '18179550-Z6V17Ly1tvyOEiqCjuq1NfenI71FacvFrlqYT8Bqb', 'CkS51WZMERauimVxZBOxVQVLtBeDzIZCFLzCQpGzlg');
+        
+        $res = $oauth->post('http://api.twitter.com/1/direct_messages/new.json', array('screen_name' => 'rdohms', 'text' => 'mytext'));
+        var_dump($res);
+        
+        return new \Symfony\Component\HttpFoundation\Response();
+    }   
+    
     /**
      * @Route("/souphpsp")
      * @Template()
