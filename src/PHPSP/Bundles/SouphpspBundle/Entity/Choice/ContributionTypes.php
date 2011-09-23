@@ -10,8 +10,9 @@ class ContributionTypes implements ChoiceListInterface
     {
         return array(
             'Bug Fix'       => 'Bug Fix',
-            'Nova Feature'  => 'Nova Feature',
+            'Nova Feature'  => 'Nova Funcionalidade',
             'Documentação'  => 'Documentação',
+            'Melhoria'      => 'Melhoria / Refatoração',
             'Tradução'      => 'Tradução',
             'Testes'        => 'Testes',
             'Outro'         => 'Outro'
