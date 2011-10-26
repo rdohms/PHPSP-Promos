@@ -72,11 +72,11 @@ fos_twitter:
     consumer_secret: h652phkyGHXNvrpVjPU0feRA9Vd0X2C3vplKcze4Y0
     callback_url: %site_url%/login_check
 
-phpsp.twitter.account:
-    consumer_key: qPLsh4YhO2Ui8KmM6vRtw
-    consumer_secret: CbtjJPSD1yxxJfbbr4TPKX7K0UCExnffk5Qg
-    token: 18179550-Z6V17Ly1tvyOEiqCjuq1NfenI71FacvFrlqYT8Bqb
-    token_secret: CkS51WZMERauimVxZBOxVQVLtBeDzIZCFLzCQpGzlg
+# phpsp_twitter:
+#     consumer_key: qPLsh4YhO2Ui8KmM6vRtw
+#     consumer_secret: CbtjJPSD1yxxJfbbr4TPKX7K0UCExnffk5Qg
+#     token: 18179550-Z6V17Ly1tvyOEiqCjuq1NfenI71FacvFrlqYT8Bqb
+#     token_secret: CkS51WZMERauimVxZBOxVQVLtBeDzIZCFLzCQpGzlg
 
 # Twig Extensions
 services:
