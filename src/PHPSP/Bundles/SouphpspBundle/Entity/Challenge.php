@@ -66,7 +66,8 @@ class Challenge
     /**
      * @var object $sponsor
      *
-     * @@ORM\ManyToOne(targetEntity="Sponsor")
+     * @ORM\ManyToOne(targetEntity="Sponsor")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $sponsor;
 
@@ -74,13 +75,14 @@ class Challenge
      * @var object $project
      *
      * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $project;
 
     /**
      * @var object $winners
      *
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $winner;
 

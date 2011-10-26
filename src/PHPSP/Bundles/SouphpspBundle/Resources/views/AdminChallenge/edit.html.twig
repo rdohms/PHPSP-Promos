@@ -1,0 +1,20 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Editar Desafio</h1>
+
+<form action="{{ path('admin_challenge_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+	<div class="actions">
+		<button type="submit" class="btn primary">Editar</button>
+		<a href="{{ path('admin_challenge') }}" class="btn info">Voltar para lista</a>
+	</div>
+</form>
+<div class="">
+    <form action="{{ path('admin_challenge_delete', { 'id': entity.id }) }}" method="post">
+        {{ form_widget(delete_form) }}
+        <button type="submit" class="btn danger">Delete</button>
+    </form>
+</div>
+{% endblock %}
+
