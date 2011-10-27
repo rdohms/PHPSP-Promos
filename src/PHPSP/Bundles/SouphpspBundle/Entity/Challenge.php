@@ -78,6 +78,14 @@ class Challenge
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $project;
+    
+    /**
+     * @var object $project
+     *
+     * @ORM\ManyToMany(targetEntity="Contribution")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $contributions;
 
     /**
      * @var object $winners

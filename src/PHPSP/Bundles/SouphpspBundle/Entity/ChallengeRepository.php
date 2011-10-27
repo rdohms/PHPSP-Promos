@@ -12,4 +12,27 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChallengeRepository extends EntityRepository
 {
+    
+    public function findActiveChallenges()
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->andWhere('c.startDate <= CURRENT_TIMESTAMP()');
+        $qb->andWhere('c.endDate >= CURRENT_TIMESTAMP()');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
+    public function findRecentChallenges()
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->andWhere('c.endDate <= CURRENT_TIMESTAMP()');
+        $qb->andWhere('c.endDate > ?0');
+        
+        $qb->setParameter(0, new \DateTime('-1 month'));
+        
+        return $qb->getQuery()->getResult();
+    }
+    
 }

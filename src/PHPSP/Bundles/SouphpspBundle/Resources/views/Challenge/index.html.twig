@@ -1,0 +1,47 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Desafios</h1>
+
+<div class="row">
+	<div class="span16">
+		<div>
+			<h2>Desafios Atuais</h2>
+			<ul class="challenge-list">
+				{% for challenge in active %}
+				<li>
+					<p class="date">Fecha em {{ challenge.startDate|date("d/F H:i") }}</p>
+					<p class="title">{{ challenge.name }} - {{ challenge.project.name }}</p>
+					<p class="description">{{ challenge.description|raw|nl2br }}</p>
+					<p>Patrocinado por: {{ challenge.sponsor.name }}</p>
+
+				</li>
+				{% else %}
+				<li class="empty">nenhum desafio ativo.</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span16">
+		<div>
+			<h2>Desafios Recentes</h2>
+			<ul class="challenge-list">
+				{% for challenge in recent %}
+				<li>
+					<p class="date">Fechou em {{ challenge.startDate|date("d/F H:i") }}</p>
+					<p class="title">{{ challenge.name }} - {{ challenge.project.name }}</p>
+					<p class="description">{{ challenge.description|raw|nl2br }}</p>
+					<p>Patrocinado por: {{ challenge.sponsor.name }}</p>
+
+				</li>
+				{% else %}
+				<li class="empty">nenhum desafio recente.</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

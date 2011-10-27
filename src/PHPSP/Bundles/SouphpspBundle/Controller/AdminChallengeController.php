@@ -51,7 +51,8 @@ class AdminChallengeController extends Controller
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),        
+        );
     }
 
     /**
@@ -63,6 +64,9 @@ class AdminChallengeController extends Controller
     public function newAction()
     {
         $entity = new Challenge();
+        $entity->setStartDate(new \DateTime('now'));
+        $entity->setEndDate(new \DateTime('now'));
+        
         $form   = $this->createForm(new ChallengeType(), $entity);
 
         return array(
