@@ -1,5 +1,17 @@
 {% extends 'SouphpspBundle::souphpsp.html.twig' %}
 
+{% block javascripts %}
+	{{parent()}}
+	<script src="/bundles/souphpsp/js/jquery.countdown.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/bundles/souphpsp/js/jquery.countdown-pt-BR.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+	{% for challenge in active %}
+	$('#counter{{challenge.id}}').countdown({until: new Date('{{ challenge.endDate|date("c") }}'), layout: '{d<}{dn} {dl}, {d>}{h<}{hn}h, {h>}{mn}m e {sn}s'});
+	{% endfor %}
+	</script>
+{% endblock %}
+
 {% block souphpsp_content %}
 <h1>Desafios</h1>
 
@@ -10,11 +22,7 @@
 			<ul class="challenge-list">
 				{% for challenge in active %}
 				<li>
-					<p class="date">Fecha em {{ challenge.startDate|date("d/F H:i") }}</p>
-					<p class="title">{{ challenge.name }} - {{ challenge.project.name }}</p>
-					<p class="description">{{ challenge.description|raw|nl2br }}</p>
-					<p>Patrocinado por: {{ challenge.sponsor.name }}</p>
-
+					{% include 'SouphpspBundle:Challenge:_challenge.html.twig' %}
 				</li>
 				{% else %}
 				<li class="empty">nenhum desafio ativo.</li>
@@ -27,14 +35,10 @@
 	<div class="span16">
 		<div>
 			<h2>Desafios Recentes</h2>
-			<ul class="challenge-list">
+			<ul class="challenge-list recent">
 				{% for challenge in recent %}
 				<li>
-					<p class="date">Fechou em {{ challenge.startDate|date("d/F H:i") }}</p>
-					<p class="title">{{ challenge.name }} - {{ challenge.project.name }}</p>
-					<p class="description">{{ challenge.description|raw|nl2br }}</p>
-					<p>Patrocinado por: {{ challenge.sponsor.name }}</p>
-
+					{% include 'SouphpspBundle:Challenge:_challenge.html.twig' %}
 				</li>
 				{% else %}
 				<li class="empty">nenhum desafio recente.</li>

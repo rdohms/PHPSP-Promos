@@ -144,3 +144,16 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 
 .project_users {  }
 
+/* Desafios */
+.challenge-list {  }
+.challenge-list { list-style-type: none; }
+.challenge-list li { padding: 10px 0; color: #000; clear:both;  }
+.challenge-list li .date { float:right; margin:0 0 10px 0; -webkit-border-radius: 10px 0px 10px 10px; -moz-border-radius: 10px 0px 10px 10px; border-radius: 10px 0px 10px 10px; border:1px solid #858585; background-color:#FFFFFF; -webkit-box-shadow: #B3B3B3 2px 2px 2px; -moz-box-shadow: #B3B3B3 2px 2px 2px; box-shadow: #B3B3B3 2px 2px 2px; background-color:#EED168; padding: 10px; text-align: center; }
+.challenge-list li .date .counter { display: inline; font-weight:bold; }
+.challenge-list li .description { clear:both; }
+.challenge-list li .prize { float:left; margin-top: -10px; }
+.challenge-list li .sponsor { float:right; color:gray;   }
+
+.recent li { color: gray;  }
+.recent h3 { color: gray;  }
+.recent li .date { background-color: gray; color: black;  }

@@ -6,14 +6,16 @@
 		<title>{% block title %}Welcome!{% endblock %}</title>
 
 		<link rel="stylesheet" href="/css/twitter-bootstrap.css" type="text/css">
-		{% block stylesheet %}{% endblock %}
+		{% block stylesheets %}{% endblock %}
 		
 		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 		
 	</head>
 	<body>
 		{% block body %}{% endblock %}
-		{% block javascripts %}{% endblock %}
+		{% block javascripts %}
+			<script src="/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+		{% endblock %}
 		
 		
 		{% if app_env != "dev" %}

@@ -2,11 +2,12 @@
 
 {% block title %}{{ parent() }} - Sou PHPSP e Contribuo{% endblock %}
 
-{% block stylesheet %} {{parent()}}
+{% block stylesheets %} 
+{{parent()}}
 <link rel="stylesheet" href="{{ asset('bundles/souphpsp/css/souphpsp.css') }}" type="text/css" media="screen">
 {% endblock %}
 
-{% block javascript %}{% endblock %}
+{% block javascripts %}{{parent()}}{% endblock %}
 
 {% block content %}
 	<nav>

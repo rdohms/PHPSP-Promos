@@ -1,0 +1,11 @@
+{% if challenge.endDate|date('U') > "now"|date('U') %}
+	<div class="date span4">Encerra em <div id="counter{{challenge.id}}" class="counter"></div></div>
+{% else %}
+	<div class="date span4">Encerrou em {{ challenge.endDate|date("d/F H:i:s") }}</div>
+{% endif %}
+
+<h3>{{ challenge.name }}{% if challenge.project %} - {{ challenge.project.name }}{% endif %}</h3>
+<p class="prize">Prêmio: {{ challenge.prize }}</p>
+<p class="description">{{ challenge.description|raw|nl2br }}</p>
+
+<p class="sponsor">Patrocinado por: {{ challenge.sponsor.name }}</p>

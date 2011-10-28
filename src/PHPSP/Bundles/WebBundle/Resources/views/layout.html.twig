@@ -2,7 +2,8 @@
 
 {% block title %}PHPSP{% endblock %}
 
-{% block stylesheet %}
+{% block stylesheets %}
+{{parent()}}
 <link rel="stylesheet" href="{{ asset('bundles/web/css/web.css') }}" type="text/css">
 {% endblock %}
 
@@ -29,4 +30,4 @@
 	</footer>
 {% endblock %}
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %} {{parent()}} {% endblock %}
