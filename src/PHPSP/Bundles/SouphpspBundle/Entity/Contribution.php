@@ -326,4 +326,14 @@ class Contribution
     public function setProjectOther($projectOther){}
     public function getTypeOther(){}
     public function setTypeOther($typeOther){}
+    
+    public function __toString()
+    {
+        return sprintf('[%s] %s - %s: %s',
+                $this->getDateAdded()->format('d/m/Y H:i'),
+                $this->getType(),
+                $this->getProject()->getName(),
+                $this->getDescription()
+                );
+    }
 }

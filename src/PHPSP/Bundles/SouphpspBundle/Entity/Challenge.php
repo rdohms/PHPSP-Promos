@@ -284,4 +284,16 @@ class Challenge
     {
         return $this->winner;
     }
+    
+    public function getContributions()
+    {
+        return $this->contributions;
+    }
+
+    public function setContributions($contributions)
+    {
+        $this->contributions = $contributions;
+    }
+
+
 }

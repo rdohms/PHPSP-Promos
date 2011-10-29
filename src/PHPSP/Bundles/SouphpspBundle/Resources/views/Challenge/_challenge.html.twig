@@ -1,11 +1,19 @@
 {% if challenge.endDate|date('U') > "now"|date('U') %}
-	<div class="date span4">Encerra em <div id="counter{{challenge.id}}" class="counter"></div></div>
+	<div class="date span6">Encerra em <div id="counter{{challenge.id}}" class="counter"></div></div>
 {% else %}
 	<div class="date span4">Encerrou em {{ challenge.endDate|date("d/F H:i:s") }}</div>
 {% endif %}
 
-<h3>{{ challenge.name }}{% if challenge.project %} - {{ challenge.project.name }}{% endif %}</h3>
-<p class="prize">Prêmio: {{ challenge.prize }}</p>
+<h3>{{ challenge.name }}{% if challenge.project %} - {{ challenge.project.name }}{% endif %} </h3>
+<p class="prize">Prêmio: <strong>{{ challenge.prize }}</strong> para <strong>{{challenge.qtdWinners}}</strong> vencedor{% if challenge.qtdWinners > 1%}es{% endif %}</p>
 <p class="description">{{ challenge.description|raw|nl2br }}</p>
+
+{% if infopage is not defined  %}
+    {% if challenge.endDate|date('U') > "now"|date('U') %}
+    <p class="submit"><a href="{{path('challenge_submit', { 'id': challenge.id })}}" class="btn primary">Submeter contribuição</a> ({{challenge.contributions.count}} submissões)</p>
+    {% else %}
+    <p>Vencedores: {{challenge.winner}}</p>
+    {% endif %}
+{% endif  %}
 
 <p class="sponsor">Patrocinado por: {{ challenge.sponsor.name }}</p>

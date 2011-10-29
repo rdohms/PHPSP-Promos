@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use PHPSP\Bundles\SouphpspBundle\Entity\Contribution;
 use PHPSP\Bundles\SouphpspBundle\Form\ContributionType;
 use PHPSP\Bundles\SouphpspBundle\Entity\Project;
+use PHPSP\Bundles\SouphpspBundle\Form\ChallengeSubmitType;
 
 
 /**
@@ -38,21 +39,36 @@ class ChallengeController extends Controller
     }
 
     /**
-     * @Route("/{id}/show", name="challenge_show")
+     * @Route("/{id}/submit", name="challenge_submit")
      * @Template()
      */
-    public function showAction($id)
+    public function submitAction($id)
     {
-
+        //TODO: if ended abort submit
+        
         $challenge = $this->getEM()->getRepository('SouphpspBundle:Challenge')->find($id);
 
-        if (!$entity) {
+        if (!$challenge) {
             throw $this->createNotFoundException('Desafio não encontrado.');
         }
 
+        //Get user contributions
+        $uid = $this->getLoggedUser()->id;
+        $form   = $this->createForm(new ChallengeSubmitType(), array('challenge' => $id), array('uid' => $uid));
+        
         return array(
-            'challenge'      => $challenge,
+            'challenge' => $challenge,
+            'form'      => $form->createView()
         );
+    }
+
+    /**
+     * @Route("/save-submission", name="challenge_save_submission")
+     * @Template()
+     */
+    public function saveSubmissionAction($id)
+    {
+
     }
     
 }

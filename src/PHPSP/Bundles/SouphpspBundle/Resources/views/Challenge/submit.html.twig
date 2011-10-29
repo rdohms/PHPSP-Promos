@@ -1,0 +1,51 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block javascripts %}
+	{{parent()}}
+	<script src="/bundles/souphpsp/js/jquery.countdown.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/bundles/souphpsp/js/jquery.countdown-pt-BR.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+	$('#counter{{challenge.id}}').countdown({until: new Date('{{ challenge.endDate|date("c") }}'), layout: '{d<}{dn} {dl}, {d>}{h<}{hn}h, {h>}{mn}m e {sn}s'});
+	</script>
+{% endblock %}
+
+{% block souphpsp_content %}
+{% set infopage = true  %}
+<div class="row">
+	<div class="span16">
+		<div class="row">
+			<div class="span12 challenge-info">
+				<h1>Submeter contribuição para Desafio</h1>
+				
+				{% include 'SouphpspBundle:Challenge:_challenge.html.twig' %}
+			</div>
+			<div class="span4">
+				<h2>Participantes</h2>
+    			{% for contribution in challenge.contributions %}
+    			<a href="{{ path('user_page', { 'username': getTwitterInfo(contribution.userId).screen_name }) }}"><img class="avatar" src="{{ getTwitterInfo(contribution.userId).profile_image_url }}" alt="{{ getTwitterInfo(contribution.userId).screen_name }}"></a>
+    			{% else %}
+    			<p>nenhum participante.</p>
+    			{% endfor %}
+			</div>
+		</div>
+		<div class="row">
+		  <div class="span16">
+		      <h2>Quero participar!</h2>
+		      
+		      <p>Para participar de um desafio basta fazer uma contribuição compatível com as regras do desafio, e submeter ela para avaliação dentro do desafio, mesmo que ela ainda esteja pendente de aprovação.</p>
+		      <p>Para submeter sua contribuição escolha ela abaixo:</p>
+		      
+              <form action="{{ path('challenge_save_submission') }}" method="post" {{ form_enctype(form) }}>
+                  {{ form_widget(form) }}
+              	<div class="actions">
+              		<button type="submit" class="btn primary">Participar!</button>
+              		<button type="reset" class="btn">Cancelar</button>
+              	</div>
+              </form>
+		  </div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
