@@ -12,7 +12,16 @@
     {% if challenge.endDate|date('U') > "now"|date('U') %}
     <p class="submit"><a href="{{path('challenge_submit', { 'id': challenge.id })}}" class="btn primary">Submeter contribuição</a> ({{challenge.contributions.count}} submissões)</p>
     {% else %}
-    <p>Vencedores: {{challenge.winner}}</p>
+    <h4>Vencedores</h4>
+    <div class="challenge_contrib">
+        {% for contrib in challenge.winners %}
+    	<div class="span7">
+    		{% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': false, 'show_avatar': true} %}
+    	</div>
+    	{% else %}
+    	<p>nenhum vencedor anunciado, aguarde.</p>
+        {% endfor %}
+    </div>
     {% endif %}
 {% endif  %}
 

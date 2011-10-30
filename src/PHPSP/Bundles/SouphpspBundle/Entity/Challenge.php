@@ -90,9 +90,11 @@ class Challenge
     /**
      * @var object $winners
      *
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\ManyToMany(targetEntity="Contribution")
+     * @ORM\JoinTable(name="challenge_contribution_winners")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
-    private $winner;
+    private $winners;
 
 
     /**
@@ -270,9 +272,9 @@ class Challenge
      *
      * @param object $winner
      */
-    public function setWinner($winner)
+    public function setWinners($winners)
     {
-        $this->winner = $winner;
+        $this->winners = $winners;
     }
 
     /**
@@ -280,9 +282,9 @@ class Challenge
      *
      * @return object 
      */
-    public function getWinner()
+    public function getWinners()
     {
-        return $this->winner;
+        return $this->winners;
     }
     
     public function getContributions()

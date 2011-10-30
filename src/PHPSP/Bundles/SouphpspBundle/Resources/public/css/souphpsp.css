@@ -168,3 +168,9 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .challenge-info .sponsor { float:right; color:gray;   }
 .challenge-info .submit {    }
 .challenge-info .submit a { text-decoration:none;   }
+
+.challenge_contrib .contribution { color:#000; margin: 5px 0 10px 0; border: 0px; -webkit-box-shadow: #FFF 0px 0px 0px; -moz-box-shadow: #FFF 0px 0px 0px; box-shadow: #FFF 0px 0px 0px; padding: 10px; 
+}
+.challenge_contrib .contribution .desc { display:none; }
+.challenge_contrib .contribution .status_info { display:none; }
+.challenge_contrib .contribution .operational { display:none; }
