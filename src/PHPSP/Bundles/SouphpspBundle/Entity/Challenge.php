@@ -287,6 +287,12 @@ class Challenge
         return $this->winners;
     }
     
+
+    public function appendWinner($contribution)
+    {
+        $this->winners->add($contribution);
+    }
+    
     public function getContributions()
     {
         return $this->contributions;

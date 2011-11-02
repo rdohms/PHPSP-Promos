@@ -174,3 +174,7 @@ margin: 10px 0; -webkit-border-radius: 10px 0px 10px 0px; -moz-border-radius: 10
 .challenge_contrib .contribution .desc { display:none; }
 .challenge_contrib .contribution .status_info { display:none; }
 .challenge_contrib .contribution .operational { display:none; }
+
+.admin_challenge_contrib input { float:left;}
+.admin_challenge_contrib .contribution {  margin-left: 15px; width:80%;  }
+.admin_challenge_contrib .contribution .operational { display:none; }

@@ -9,8 +9,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Prize</th>
-            <th>Description</th>
-            <th>Qtdwinners</th>
+            <th># Winners</th>
             <th>Startdate</th>
             <th>Enddate</th>
             <th>Actions</th>
@@ -22,10 +21,9 @@
             <td><a href="{{ path('admin_challenge_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.name }}</td>
             <td>{{ entity.prize }}</td>
-            <td>{{ entity.description }}</td>
             <td>{{ entity.qtdWinners }}</td>
-            <td>{{ entity.startDate|date('Y-m-d H:i:s') }}</td>
-            <td>{{ entity.endDate|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.startDate|date('d/m/Y H:i') }}</td>
+            <td>{{ entity.endDate|date('d/m/Y H:i') }}</td>
             <td>
                 <ul>
                     <li>
@@ -33,6 +31,9 @@
                     </li>
                     <li>
                         <a href="{{ path('admin_challenge_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_challenge_select_winners', {'id': entity.id}) }}">vencedores</a>
                     </li>
                 </ul>
             </td>

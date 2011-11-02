@@ -13,6 +13,18 @@ use Doctrine\ORM\EntityRepository;
 class ChallengeRepository extends EntityRepository
 {
     
+    public function countActiveChallenges()
+    {
+        $qb = $this->createQueryBuilder('c');
+        
+        $qb->select('COUNT(c.id)');
+        
+        $qb->andWhere('c.startDate <= CURRENT_TIMESTAMP()');
+        $qb->andWhere('c.endDate >= CURRENT_TIMESTAMP()');
+        
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+    
     public function findActiveChallenges()
     {
         $qb = $this->createQueryBuilder('c');

@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use PHPSP\Bundles\SouphpspBundle\Entity\Challenge;
 use PHPSP\Bundles\SouphpspBundle\Form\ChallengeType;
+use PHPSP\Bundles\SouphpspBundle\Form\ChallengeWinnersType;
 
 /**
  * Challenge controller.
@@ -198,6 +199,55 @@ class AdminChallengeController extends Controller
         return $this->redirect($this->generateUrl('admin_challenge'));
     }
 
+    
+    /**
+     * @Route("/{id}/select-winners", name="admin_challenge_select_winners")
+     * @Template()
+     */
+    public function selectWinnersAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('SouphpspBundle:Challenge')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Challenge entity.');
+        }
+
+        return array(
+            'entity' => $entity,
+        );
+    }
+    
+    /**
+     * @Route("/{id}/save-winners", name="admin_challenge_save_winners")
+     * @Method("post")
+     * @Template("SouphpspBundle:AdminChallenge:selectWinners.html.twig")
+     */
+    public function saveWinnersAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('SouphpspBundle:Challenge')->find($id);
+
+        $winners = $this->getRequest()->get('winners');
+        
+        if (count($winners) != $entity->getQtdWinners()) {
+            $error = 'Você precisa selecionar '.$entity->getQtdWinners().' vencedores';
+            
+            return array('entity' => $entity, 'error' => $error);
+        }
+        
+        foreach($winners as $winner) {
+            $contribution = $em->getRepository('SouphpspBundle:Contribution')->find($winner);
+            $entity->appendWinner($contribution);
+        }
+        
+        $em->persist($entity);
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('admin_challenge_show', array('id' => $entity->getId())));
+    }
+    
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))

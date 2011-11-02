@@ -22,16 +22,40 @@
             <td>{{ entity.description }}</td>
         </tr>
         <tr>
-            <th>Qtdwinners</th>
+            <th># Vencedores</th>
             <td>{{ entity.qtdWinners }}</td>
         </tr>
         <tr>
             <th>Startdate</th>
-            <td>{{ entity.startDate|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.startDate|date('d/m/Y H:i') }}</td>
         </tr>
         <tr>
             <th>Enddate</th>
-            <td>{{ entity.endDate|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.endDate|date('d/m/Y H:i') }}</td>
+        </tr>
+        <tr>
+            <th>Participantes</th>
+            <td>
+                <ul>
+                    {% for contribution in entity.contributions  %}
+                    <li>
+                        <strong>{{ getTwitterInfo(contribution.userId).screen_name }}:</strong> <a href="{{ path('contribution_show', {'id': contribution.id}) }}">{{contribution.type}} - {{contribution.project.name}}</a>: {{contribution.description}} 
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Vencedores</th>
+            <td>
+                <ul>
+                    {% for contribution in entity.winners  %}
+                    <li>
+                        <strong>{{ getTwitterInfo(contribution.userId).screen_name }}:</strong> <a href="{{ path('contribution_show', {'id': contribution.id}) }}">{{contribution.type}} - {{contribution.project.name}}</a>: {{contribution.description}} 
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
         </tr>
     </tbody>
 </table>

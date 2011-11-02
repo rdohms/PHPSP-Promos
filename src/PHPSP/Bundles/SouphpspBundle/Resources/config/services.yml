@@ -4,3 +4,9 @@ services:
         arguments:
             doctrine: @doctrine
             graph: @phpsp.chart
+    souphpsp.twig.challengeExtension:
+        class: PHPSP\Bundles\SouphpspBundle\Twig\Extension\ChallengeInfo
+        arguments:
+            doctrine: @doctrine
+        tags:
+            - { name: twig.extension }

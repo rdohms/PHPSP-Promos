@@ -1,0 +1,33 @@
+{% extends 'SouphpspBundle::souphpsp.html.twig' %}
+
+{% block souphpsp_content %}
+<h1>Editar Desafio</h1>
+
+{% if error is defined %}
+<div class="alert-message error">
+  <p><strong>Erro!</strong> {{error}}</p>
+</div>
+{% endif %}
+
+<form action="{{ path('admin_challenge_save_winners', { 'id': entity.id }) }}" method="post">
+    <div class="clearfix">
+      <label id="winners">Contribuições</label>
+      <div class="input">
+        <ul class="inputs-list admin_challenge_contrib">
+          {% for contrib in entity.contributions %}
+          <li>
+            <label>
+              <input type="checkbox" name="winners[]" value="{{contrib.id}}" />
+              {% include "SouphpspBundle:_shared:contribution.html.twig" with {'admin': false, 'show_avatar': true} %}
+            </label>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+	<div class="actions">
+		<button type="submit" class="btn primary">Editar</button>
+		<a href="{{ path('admin_challenge') }}" class="btn info">Voltar para lista</a>
+	</div>
+</form>
+{% endblock %}
+
