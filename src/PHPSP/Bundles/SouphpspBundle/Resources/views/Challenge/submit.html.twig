@@ -21,9 +21,9 @@
 				{% include 'SouphpspBundle:Challenge:_challenge.html.twig' %}
 			</div>
 			<div class="span4">
-				<h2>Participantes</h2>
-    			{% for contribution in challenge.contributions %}
-    			<a href="{{ path('user_page', { 'username': getTwitterInfo(contribution.userId).screen_name }) }}"><img class="avatar" src="{{ getTwitterInfo(contribution.userId).profile_image_url }}" alt="{{ getTwitterInfo(contribution.userId).screen_name }}"></a>
+				<h2>Participantes ({{participants.count}})</h2>
+    			{% for participant in participants %}
+    			<a href="{{ path('user_page', { 'username': getTwitterInfo(participant).screen_name }) }}"><img class="avatar" src="{{ getTwitterInfo(participant).profile_image_url }}" alt="{{ getTwitterInfo(participant).screen_name }}"></a>
     			{% else %}
     			<p>nenhum participante.</p>
     			{% endfor %}
@@ -33,16 +33,46 @@
 		  <div class="span16">
 		      <h2>Quero participar!</h2>
 		      
-		      <p>Para participar de um desafio basta fazer uma contribuição compatível com as regras do desafio, e submeter ela para avaliação dentro do desafio, mesmo que ela ainda esteja pendente de aprovação.</p>
-		      <p>Para submeter sua contribuição escolha ela abaixo:</p>
+		      {% if challenge.endDate|date('U') > "now"|date('U') %}
+    		      {% if message %}
+                  <div class="alert-message error">
+                    <p><strong>Erro!</strong> {{message}}</p>
+                  </div>
+                  {% endif %}
+              
+    		      <p>Para participar de um desafio basta fazer uma contribuição compatível com as regras do desafio, e submeter ela para avaliação dentro do desafio, mesmo que ela ainda esteja pendente de aprovação.</p>
+    		      <p>Para submeter sua contribuição escolha ela abaixo:</p>
 		      
-              <form action="{{ path('challenge_save_submission') }}" method="post" {{ form_enctype(form) }}>
-                  {{ form_widget(form) }}
-              	<div class="actions">
-              		<button type="submit" class="btn primary">Participar!</button>
-              		<button type="reset" class="btn">Cancelar</button>
-              	</div>
-              </form>
+                  <form action="{{ path('challenge_save_submission', {'id': challenge.id}) }}" method="post" {{ form_enctype(form) }} class="form-stacked">
+                      {{ form_widget(form) }}
+                  	<div class="actions">
+                  		<button type="submit" class="btn primary">Participar!</button>
+                  		<button type="reset" class="btn">Cancelar</button>
+                  	</div>
+                  </form>
+              {% else %}
+              
+              <div class="alert-message block-message warning">
+                <p><strong>Acabou o tempo!</strong> Este desafio já acabou e você não pode mais participar, mas não desista, novos desafios estão a caminho.</p>
+              </div>
+              
+              {% endif %}
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="span16">
+		      <h2>Suas Participações</h2>
+		      <ul>
+    		      {% for contribution in challenge.contributions %}
+
+    		        {% if contribution.userId == uid %}
+    		        <li><strong><a href="{{ path('contribution_show', {'id': contribution.id}) }}">{{contribution.type}} - {{contribution.project.name}}</a></strong>: {{contribution.description}}</li>
+    		        {% endif  %}
+    		      {% else %}
+    		        <p>você ainda não esta participando.</p>
+    		      {% endfor %}
+		      </ul>
+
 		  </div>
 		</div>
 	</div>

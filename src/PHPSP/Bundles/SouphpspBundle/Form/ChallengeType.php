@@ -18,7 +18,6 @@ class ChallengeType extends AbstractType
             ->add('endDate')
             ->add('sponsor')
             ->add('project')
-            ->add('winner')
         ;
     }
 

@@ -80,7 +80,7 @@ class Challenge
     private $project;
     
     /**
-     * @var object $project
+     * @var Doctrine\Common\Collections\ArrayCollection $project
      *
      * @ORM\ManyToMany(targetEntity="Contribution")
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
@@ -88,7 +88,7 @@ class Challenge
     private $contributions;
 
     /**
-     * @var object $winners
+     * @var Doctrine\Common\Collections\ArrayCollection $winners
      *
      * @ORM\ManyToMany(targetEntity="Contribution")
      * @ORM\JoinTable(name="challenge_contribution_winners")
@@ -297,5 +297,8 @@ class Challenge
         $this->contributions = $contributions;
     }
 
-
+    public function appendContribution($contribution)
+    {
+        $this->contributions->add($contribution);
+    }
 }

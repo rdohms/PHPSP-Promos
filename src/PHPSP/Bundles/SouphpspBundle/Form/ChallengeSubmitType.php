@@ -10,20 +10,21 @@ class ChallengeSubmitType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('challenge', 'hidden')
             ->add('contribution', 'entity', array(
-                    'class' => 'SouphpspBundle:Contribution',
+                    'class'         => 'SouphpspBundle:Contribution',
                     'query_builder' => function ($er) use ($options) { 
-                                    $qb = $er->createQueryBuilder('c');
-                                    $qb->where('c.userId = ?0');
-                                    $qb->andWhere('c.status != ?1');
+                                        $qb = $er->createQueryBuilder('c');
+                                        $qb->where('c.userId = ?0');
+                                        $qb->andWhere('c.status != ?1');
 
-                                    $qb->setParameter(0, $options['uid']);
-                                    $qb->setParameter(1, 0);
+                                        $uid = isset($options['uid'])? $options['uid']:null;
+                                        $qb->setParameter(0, $uid);
+                                        $qb->setParameter(1, 0);
 
-                                    $qb->orderBy('c.dateRevised', 'DESC');
-                                    $qb->orderBy('c.dateAdded', 'DESC');
-                                    return $qb; }
+                                        $qb->orderBy('c.dateRevised', 'DESC');
+                                        $qb->orderBy('c.dateAdded', 'DESC');
+                                        return $qb; },
+                    'label'         => "Escolha uma de suas contribuições"
             ));
     }
 
