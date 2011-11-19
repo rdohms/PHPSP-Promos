@@ -17,7 +17,7 @@ class ChallengeType extends AbstractType
             ->add('startDate')
             ->add('endDate')
             ->add('sponsor')
-            ->add('project')
+            ->add('project', null, array('required' => false, 'empty_value' => 'Sem projeto.') )
         ;
     }
 

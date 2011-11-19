@@ -24,7 +24,8 @@ class ChallengeSubmitType extends AbstractType
                                         $qb->orderBy('c.dateRevised', 'DESC');
                                         $qb->orderBy('c.dateAdded', 'DESC');
                                         return $qb; },
-                    'label'         => "Escolha uma de suas contribuições"
+                    'label'         => "Escolha uma de suas contribuições",
+                    'empty_value'   => "Escolha uma contribuição válida"
             ));
     }
 
