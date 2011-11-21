@@ -109,6 +109,14 @@ class ContributionController extends Controller
             $this->getEM()->persist($entity);
             $this->getEM()->flush();
             
+            // Mail para Admin
+            $message = \Swift_Message::newInstance()
+                ->setSubject('[Sou PHPSP] Nova contribuição')
+                ->setFrom('noreply@phpsp.org.br')
+                ->setTo(/* read from config */)
+                ->setBody($this->renderView('SouphpspBundle:Email:new_contribution.txt.twig', array('contribution' => $entity)));
+            $this->get('mailer')->send($message);
+            
             return $this->redirect($this->generateUrl('contribution_show', array('id' => $entity->getId())));
             
         }
