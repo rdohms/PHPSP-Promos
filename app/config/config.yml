@@ -13,9 +13,8 @@ framework:
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
     session:
-        
+        default_locale:  %locale%
         auto_start:     true
 
 # Twig Configuration
@@ -77,7 +76,7 @@ fos_twitter:
     file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
     consumer_key: LKUu7jZ5bqDJNcD9Ehkg9A
     consumer_secret: h652phkyGHXNvrpVjPU0feRA9Vd0X2C3vplKcze4Y0
-    callback_url: %site.url%/login_check
+    callback_url: %site_url%/login_check
 
 # phpsp_twitter:
 #     consumer_key: qPLsh4YhO2Ui8KmM6vRtw
