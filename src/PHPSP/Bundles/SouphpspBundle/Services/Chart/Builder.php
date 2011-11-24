@@ -156,10 +156,18 @@ class Builder
     {
         $entries = array();
         foreach($resultSet as $result) {
+            
+            $projectName = (string) $result[0]->getProject();
+            
+            //truncate
+            if (strlen($projectName) > 15) {
+                $projectName = substr($projectName, 0, 12) . '...';
+            }
+            
             $entry = array(
                 'data' => $result['pCount'],
                 'options' => array( 
-                    'title' => (string) $result[0]->getProject() . " (".$result['pCount'].")",
+                    'title' => $projectName . " (".$result['pCount'].")",
                 )
             );
             $entries[] = $entry;
